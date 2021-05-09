@@ -1,12 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The web application admin page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <header class="header">
+        <span class="logo-main">
+          <img src="img/logo.svg" alt="Main logo" />
+        </span>
+        <span class="user">
+          <span class="exit-hover">
+            <a href="#">Выход</a>
+          </span>
+        </span>
+      </header>
+    </div>
+    <div class="main-wrapper">
+      <main class="main">
+        <div class="invite-wrapper">
+          <button class="button-invite show_popup">Пригласить</button>
+          <div class="overlay-popup-form"></div>
+          <div class="popup-form-wrapper">
+            <div class="invite-object">
+              <form class="invite-form" action="" method="">
+                <input class="type-email" type="email" placeholder="Почта" />
+                  <textarea
+                    class="type-text"
+                    type="text"
+                    rows="10"
+                    cols="45"
+                    placeholder="Введите текст"
+                  ></textarea>
+                <input class="submit-form" type="submit" value="Отправить" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <table>
+          <tr class="table-row">
+            <td class="clinic">
+              <div class="clinic-info-wrapper">
+                <span class="clinic-info"
+                  >Харьковская городская многопрофильная больница № 18</span
+                >
+                <button class="btn-open-info"></button>
+              </div>
+              <ul class="clinic-contact-info">
+                <li class="clinic-address">
+                  <span class="clinic-contact-key">Адрес:</span> вулиця
+                  Краснодарська, 104, Харків, Харківська, 61000
+                </li>
+                <li class="clinic-admin-info">
+                  <span class="clinic-contact-key">Админинистратор:</span>
+                  Кочкин В.О., kochkin.vol@gmail.com
+                </li>
+              </ul>
+            </td>
+            <td class="edit">
+              <a href="#"></a>
+            </td>
+            <td class="delete">
+              <a href="#"></a>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <td class="clinic">
+              <div class="clinic-info-wrapper">
+                <span class="clinic-info"
+                  >Харьковская городская многопрофильная больница № 2002</span
+                >
+                <button class="btn-open-info"></button>
+              </div>
+              <ul class="clinic-contact-info">
+                <li class="clinic-address">
+                  <span class="clinic-contact-key">Адрес:</span> вулиця
+                  Краснодарська, 104, Харків, Харківська, 61000
+                </li>
+                <li class="clinic-admin-info">
+                  <span class="clinic-contact-key">Админинистратор:</span>
+                  Кочкин В.О., kochkin.vol@gmail.com
+                </li>
+              </ul>
+            </td>
+            <td class="edit">
+              <a href="#"></a>
+            </td>
+            <td class="delete">
+              <a href="#"></a>
+            </td>
+          </tr>
+        </table>
+      </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

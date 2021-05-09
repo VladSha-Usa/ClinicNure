@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fbfdff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 102px;
+}
+
+.header {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .logo-main {
+  margin: -6px 17px;
+}
+
+.header .user {
+  content: "";
+  background: url("../img/user.svg");
+  width: 34.22px;
+  height: 42px;
+  right: 0;
+  margin: 1px 21px 0 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.header .user:hover > .exit-hover {
+  display: flex;
+}
+
+.header .user .exit-hover {
+  background: #4f89aa;
+  border-radius: 10px;
+  position: absolute;
+  display: none;
+  height: fit-content;
+  bottom: -50px;
+  top: 78px;
+  right: -50px;
+  z-index: 1;
+}
+
+.header .user .exit-hover:after {
+  width: 0;
+  height: 0;
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 0 34px 59px 34px;
+  border-color: transparent transparent #4f89aa transparent;
+  z-index: -1;
+  padding-top: 10px;
+  top: -36px;
+  left: 30px;
+}
+
+.header .user .exit-hover a {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fbfdff;
+  text-decoration: none;
+  padding: 11px 31px;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.invite-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 998px;
+  margin-bottom: 40px;
+}
+
+.invite-wrapper .button-invite {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #fbfdff;
+  background: #4f89aa;
+  border-radius: 15px;
+  border: none;
+  padding: 16px 25px;
+  cursor: pointer;
+}
+
+.table-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.table-row .clinic {
+  border: 1px solid #4f89aa;
+  max-width: 1000px;
+}
+
+.clinic-info-wrapper {
+  width: 1000px;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.clinic-info-wrapper .clinic-info {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #4f89aa;
+  max-width: 700px;
+}
+
+.clinic-info-wrapper .btn-open-info {
+  content: "";
+  background: url("../img/triangle.svg");
+  width: 26px;
+  height: 23px;
+  cursor: pointer;
+  border: none;
+}
+
+.active .btn-open-info {
+  transform: rotate(180deg);
+}
+
+.edit {
+  content: "";
+  background: url("../img/edit-pencil.svg");
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  margin: 20px 0 0 10px;
+}
+
+.delete {
+  content: "";
+  background: url("../img/delete-busket.svg");
+  width: 26px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  margin: 20px 0 0 12.81px;
+}
+
+.clinic-contact-info {
+  display: none;
+  border-top: 1px solid #4f89aa;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  list-style-type: none;
+  padding-inline-start: 0;
+  padding: 39px 50px 39px 20px;
+  color: #4f89aa;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.clinic-contact-info .clinic-address {
+  margin-bottom: 15px;
+}
+
+.clinic-contact-key {
+  font-weight: 600;
+}
+
+.overlay-popup-form {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+.popup-form-wrapper {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  top: calc(50% - 249px);
+  left: calc(50% - 200px);
+}
+
+.invite-object {
+  width: 400px;
+  background: #fbfdff;
+  border-radius: 29px;
+  padding: 50px;
+}
+
+.invite-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.type-email {
+  width: 300px;
+  height: 60px;
+  border: 1px solid #4f89aa;
+  box-shadow: 0px 4px 6px rgba(79, 137, 170, 0.3);
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.type-text {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #4f89aa;
+  box-shadow: 0px 4px 6px rgba(79, 137, 170, 0.3);
+  border-radius: 15px;
+  resize: none;
+  margin-bottom: 50px;
+}
+
+.invite-form ::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: #143861;
+  border-radius: 30px;
+}
+
+.invite-form ::-webkit-scrollbar-thumb {
+  background-color: #4f89aa;
+  border-radius: 30px;
+  opacity: 0.7;
+}
+
+.type-text,
+.type-email {
+  padding: 18px 22px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #4f89aa;
+  opacity: 0.7;
+}
+
+.invite-form ::-webkit-input-placeholder {
+  color: #4f89aa;
+}
+.invite-form ::-moz-placeholder {
+  color: #4f89aa;
+}
+.invite-form :-moz-placeholder {
+  color: #4f89aa;
+}
+.invite-form :-ms-input-placeholder {
+  color: #4f89aa;
+}
+
+.submit-form {
+  font-size: 30px;
+  line-height: 37px;
+  text-align: center;
+  color: #fbfdff;
+  background: #4f89aa;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 76px;
+}
+
+.type-email:focus,
+.type-text:focus,
+.submit-form:focus {
+  outline: none;
+}
