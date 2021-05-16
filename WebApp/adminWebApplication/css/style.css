@@ -145,16 +145,6 @@ body {
   transform: rotate(180deg);
 }
 
-.edit {
-  content: "";
-  background: url("../img/edit-pencil.svg");
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  border: none;
-  margin: 20px 0 0 10px;
-}
-
 .delete {
   content: "";
   background: url("../img/delete-busket.svg");
