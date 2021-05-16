@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SiPlus.me</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <header class="header">
+        <span class="logo-main">
+          <img src="img/logo.svg" alt="Main logo" />
+        </span>
+        <span class="user">
+          <span class="exit-hover">
+            <a href="#">Вихід</a>
+          </span>
+        </span>
+      </header>
+    </div>
+    <div class="main-wrapper">
+      <main class="main">
+        <div class="btn-wrapper">
+          <button class="btn-add show_popup">Додати</button>
+          <div class="overlay-popup-form"></div>
+          <div class="popup-form-wrapper">
+            <div class="invite-object">
+              <form class="invite-form" action="" method="">
+                <input class="type-value" type="text" placeholder="Посада" />
+                <input class="type-value" type="text" placeholder="ПІБ" />
+                <input class="type-value" type="email" placeholder="Пошта" />
+                <input class="submit-form" type="submit" value="Підтвердити" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <tr class="table-row table-row-header">
+            <th class="row-post">Посада:</th>
+            <th class="row-full-name">ПІБ:</th>
+            <th class="row-mail">Пошта:</th>
+          </tr>
+          <tr class="table-row table-row-value">
+            <td class="row-post">Терапевт</td>
+            <td class="row-full-name">Коряк Володимир Сергійович</td>
+            <td class="row-mail">koryak@gmail.com</td>
+            <td class="delete">
+              <a href="#"></a>
+            </td>
+          </tr>
+          <tr class="table-row table-row-value">
+            <td class="row-post">Терапевт</td>
+            <td class="row-full-name">Коряк Володимир Сергійович</td>
+            <td class="row-mail">koryak@gmail.com</td>
+            <td class="delete">
+              <a href="#"></a>
+            </td>
+          </tr>
+          <tr class="table-row table-row-value">
+            <td class="row-post">Терапевт</td>
+            <td class="row-full-name">Коряк Володимир Сергійович</td>
+            <td class="row-mail">koryak@gmail.com</td>
+            <td class="delete">
+              <a href="#"></a>
+            </td>
+          </tr>
+        </table>
+      </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

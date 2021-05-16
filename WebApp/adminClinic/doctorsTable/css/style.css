@@ -86,102 +86,26 @@ body {
   flex-direction: column;
 }
 
-.invite-wrapper {
+.btn-wrapper {
+  width: 982px;
   display: flex;
   justify-content: flex-end;
-  width: 998px;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
-.invite-wrapper .button-invite {
-  font-style: normal;
+.btn-add {
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
   text-align: center;
   color: #fbfdff;
+  width: 200px;
+  height: 60px;
   background: #4f89aa;
   border-radius: 15px;
   border: none;
-  padding: 16px 25px;
   cursor: pointer;
   box-shadow: 0 5px 10px rgba(79, 137, 170, 0.6);
-}
-
-.table {
-  word-break: break-all;
-}
-
-.table-row {
-  display: flex;
-  align-items: flex-start;
-}
-
-.table-row .clinic {
-  border: 1px solid #4f89aa;
-  max-width: 1000px;
-}
-
-.clinic-info-wrapper {
-  width: 1000px;
-  padding: 20px 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.clinic-info-wrapper .clinic-info {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: #4f89aa;
-  max-width: 700px;
-}
-
-.clinic-info-wrapper .btn-open-info {
-  content: "";
-  background: url("../img/triangle.svg");
-  width: 26px;
-  height: 23px;
-  cursor: pointer;
-  border: none;
-}
-
-.active .btn-open-info {
-  transform: rotate(180deg);
-}
-
-.delete a {
-  content: "";
-  background: url("../img/delete-busket.svg");
-  width: 26px;
-  height: 30px;
-  cursor: pointer;
-  border: none;
-  margin: 20px 0 0 12.81px;
-  position: absolute;
-}
-
-.clinic-contact-info {
-  display: none;
-  border-top: 1px solid #4f89aa;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  list-style-type: none;
-  padding-inline-start: 0;
-  padding: 39px 50px 39px 20px;
-  color: #4f89aa;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 22px;
-}
-
-.clinic-contact-info .clinic-address {
-  margin-bottom: 15px;
-}
-
-.clinic-contact-key {
-  font-weight: 600;
 }
 
 .overlay-popup-form {
@@ -200,7 +124,7 @@ body {
   display: none;
   position: absolute;
   z-index: 1000;
-  top: calc(50% - 249px);
+  top: calc(50% - 213px);
   left: calc(50% - 200px);
 }
 
@@ -217,23 +141,13 @@ body {
   align-items: center;
 }
 
-.type-email {
+.type-value {
   width: 300px;
   height: 60px;
   border: 1px solid #4f89aa;
   box-shadow: 0px 4px 6px rgba(79, 137, 170, 0.3);
   border-radius: 15px;
   margin-bottom: 30px;
-}
-
-.type-text {
-  width: 300px;
-  height: 200px;
-  border: 1px solid #4f89aa;
-  box-shadow: 0px 4px 6px rgba(79, 137, 170, 0.3);
-  border-radius: 15px;
-  resize: none;
-  margin-bottom: 50px;
 }
 
 .invite-form ::-webkit-scrollbar {
@@ -249,8 +163,7 @@ body {
   opacity: 0.7;
 }
 
-.type-text,
-.type-email {
+.type-value {
   padding: 18px 22px;
   font-weight: 500;
   font-size: 20px;
@@ -280,13 +193,56 @@ body {
   background: #4f89aa;
   border-radius: 15px;
   border: none;
-  padding: 10px 79px;
+  padding: 10px 74px;
   box-shadow: 0 5px 10px rgba(79, 137, 170, 0.6);
   cursor: pointer;
 }
 
-.type-email:focus,
-.type-text:focus,
-.submit-form:focus {
+.type-value:focus {
   outline: none;
+}
+
+.table {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #4f89aa;
+  border-collapse: collapse;
+  word-break: break-all;
+}
+
+.table td,
+.table th {
+  padding: 16px 10px;
+  text-align: start;
+}
+
+.delete a {
+  content: "";
+  background: url("../img/delete-busket.svg");
+  width: 26px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  margin: 20px 0 0 12.81px;
+  position: absolute;
+}
+
+.row-post,
+.row-mail {
+  width: 300px;
+}
+
+.row-full-name {
+  width: 400px;
+}
+
+.table-row-value td {
+  border: 1px solid #4f89aa;
+}
+
+.table-row-value .delete {
+  border: none;
+  padding: 0;
+  display: flex;
 }
