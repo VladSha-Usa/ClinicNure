@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The web application admin page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <header class="header">
+        <span class="logo-main">
+          <img src="img/logo.svg" alt="Main logo" />
+        </span>
+        <span class="user">
+          <span class="exit-hover">
+            <a href="#">Выход</a>
+          </span>
+        </span>
+      </header>
+    </div>
+    <div class="main-wrapper">
+      <main class="main">
+        <div class="data-clinic-wrapper">
+          <img
+            class="logo-clinic"
+            src="img/logo-clinic.svg"
+            alt="logo-clinic"
+          />
+          <div class="info-clinic">
+            <div class="clinic-parameter-value-wrapper">
+              <div class="clinic-parameter">Название:</div>
+              <div class="clinic-value">
+                Харьковская городская многопрофильная больница № 18
+              </div>
+            </div>
+            <div class="clinic-parameter-value-wrapper">
+              <div class="clinic-parameter">Адрес:</div>
+              <div class="clinic-value">
+                вулиця Краснодарська, 104, Харків, Харківська, 61000
+              </div>
+            </div>
+            <div class="clinic-parameter-value-wrapper">
+              <div class="clinic-parameter">Номер:</div>
+              <div class="clinic-value">+380577255130</div>
+            </div>
+            <div class="clinic-parameter-value-wrapper">
+              <div class="clinic-parameter">Профиль:</div>
+              <div class="clinic-value">многопрофильная больница</div>
+            </div>
+          </div>
+        </div>
+        <div class="btns-wrapper">
+          <button class="btn-edit">Редактировать</button>
+          <button class="btn-view">Просмотр</button>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
