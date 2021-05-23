@@ -139,7 +139,7 @@ body {
   transform: rotate(180deg);
 }
 
-.delete a {
+.mail a {
   content: "";
   background: url("../img/mail.svg");
   width: 30px;
