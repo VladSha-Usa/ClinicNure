@@ -80,9 +80,10 @@ p {
 .header .user-actions-wrapper-triangle {
 	position: absolute;
 
-	width: 30px;
+	width: 110px;
 	height: 60px;
 	margin: -40px 0 0 0;
+	padding: 0 40px;
 }
 
 .header .user-action {
@@ -149,7 +150,7 @@ p {
 	width: 450px;
 }
 
-.btn-edit-wrapper {
+.btn-request-list-wrapper {
 	display: flex;
 
 	width: 710px;
@@ -157,7 +158,7 @@ p {
 	justify-content: center;
 }
 
-.btn-edit {
+.btn-request-list {
 	font-size: 30px;
 	font-weight: 500;
 	line-height: 37px;
@@ -173,126 +174,4 @@ p {
 	border-radius: 15px;
 	background: #4f89aa;
 	box-shadow: 0 5px 10px rgba(79, 137, 170, .6);
-}
-
-.changing-wrapper .button-changing {
-	font-size: 24px;
-	font-weight: 500;
-	font-style: normal;
-	line-height: 29px;
-
-	padding: 16px 25px;
-
-	cursor: pointer;
-	text-align: center;
-
-	color: #fbfdff;
-	border: none;
-	border-radius: 15px;
-	background: #4f89aa;
-}
-
-.overlay-popup-form {
-	position: fixed;
-	z-index: 999;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-
-	display: none;
-
-	opacity: .5;
-	background: #000;
-}
-
-.popup-form-wrapper {
-	position: absolute;
-	z-index: 1000;
-	top: calc(50% - 249px);
-	left: calc(50% - 300px);
-
-	display: none;
-}
-
-.changing-object {
-	width: 600px;
-	padding: 50px;
-
-	border-radius: 29px;
-	background: #fbfdff;
-}
-
-.changing-form {
-	display: flex;
-	flex-direction: column;
-
-	align-items: center;
-}
-
-.type-text {
-	width: 500px;
-	height: 60px;
-	margin-bottom: 30px;
-
-	border: 1px solid #4f89aa;
-	border-radius: 15px;
-	box-shadow: 0 4px 6px rgba(79, 137, 170, .3);
-}
-
-.changing-form ::-webkit-scrollbar {
-	width: 10px;
-	height: 8px;
-
-	border-radius: 30px;
-	background-color: #143861;
-}
-
-.changing-form ::-webkit-scrollbar-thumb {
-	opacity: .7;
-	border-radius: 30px;
-	background-color: #4f89aa;
-}
-
-.type-text {
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 24px;
-
-	padding: 18px 22px;
-
-	opacity: .7;
-	color: #4f89aa;
-}
-
-.changing-form ::-webkit-input-placeholder {
-	color: #4f89aa;
-}
-.changing-form ::-moz-placeholder {
-	color: #4f89aa;
-}
-.changing-form :-moz-placeholder {
-	color: #4f89aa;
-}
-.changing-form :-ms-input-placeholder {
-	color: #4f89aa;
-}
-
-.submit-form {
-	font-size: 30px;
-	line-height: 37px;
-
-	padding: 10px 76px;
-
-	text-align: center;
-
-	color: #fbfdff;
-	border: none;
-	border-radius: 15px;
-	background: #4f89aa;
-}
-
-.type-text:focus,
-.submit-form:focus {
-	outline: none;
 }
