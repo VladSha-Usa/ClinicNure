@@ -108,7 +108,8 @@ body {
   box-shadow: 0 5px 10px rgba(79, 137, 170, 0.6);
 }
 
-.overlay-popup-form {
+.overlay-popup-form-invite,
+.overlay-popup-form-change-doctor {
   display: none;
   position: fixed;
   z-index: 999;
@@ -120,29 +121,30 @@ body {
   opacity: 0.5;
 }
 
-.popup-form-wrapper {
+.popup-form-wrapper-invite,
+.popup-form-wrapper-change-doctor {
   display: none;
   position: absolute;
   z-index: 1000;
-  top: calc(50% - 213px);
-  left: calc(50% - 200px);
+  top: calc(50% - 300px);
+  left: calc(50% - 300px);
 }
 
-.invite-object {
-  width: 400px;
+.form-wrapper {
+  width: 600px;
   background: #fbfdff;
   border-radius: 29px;
   padding: 50px;
 }
 
-.invite-form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .type-value {
-  width: 300px;
+  width: 500px;
   height: 60px;
   border: 1px solid #4f89aa;
   box-shadow: 0px 4px 6px rgba(79, 137, 170, 0.3);
@@ -150,14 +152,14 @@ body {
   margin-bottom: 30px;
 }
 
-.invite-form ::-webkit-scrollbar {
+.form ::-webkit-scrollbar {
   width: 10px;
   height: 8px;
   background-color: #143861;
   border-radius: 30px;
 }
 
-.invite-form ::-webkit-scrollbar-thumb {
+.form ::-webkit-scrollbar-thumb {
   background-color: #4f89aa;
   border-radius: 30px;
   opacity: 0.7;
@@ -172,16 +174,16 @@ body {
   opacity: 0.7;
 }
 
-.invite-form ::-webkit-input-placeholder {
+.form ::-webkit-input-placeholder {
   color: #4f89aa;
 }
-.invite-form ::-moz-placeholder {
+.form ::-moz-placeholder {
   color: #4f89aa;
 }
-.invite-form :-moz-placeholder {
+.form :-moz-placeholder {
   color: #4f89aa;
 }
-.invite-form :-ms-input-placeholder {
+.form :-ms-input-placeholder {
   color: #4f89aa;
 }
 
@@ -217,6 +219,16 @@ body {
   text-align: start;
 }
 
+.edit a {
+  content: "";
+  background: url("../img/edit-pencil.svg");
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  margin: 20px 0 0 10px;
+}
+
 .delete a {
   content: "";
   background: url("../img/delete-busket.svg");
@@ -225,24 +237,18 @@ body {
   cursor: pointer;
   border: none;
   margin: 20px 0 0 12.81px;
-  position: absolute;
 }
 
-.row-post,
 .row-mail {
-  width: 300px;
-}
-
-.row-full-name {
-  width: 400px;
+  width: 800px;
 }
 
 .table-row-value td {
   border: 1px solid #4f89aa;
 }
 
+.table-row-value .edit,
 .table-row-value .delete {
   border: none;
-  padding: 0;
-  display: flex;
+  display: inline-flex;
 }
