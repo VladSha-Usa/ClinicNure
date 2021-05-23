@@ -99,6 +99,107 @@ body {
   flex-direction: column;
 }
 
+.change-clinic-wrapper {
+  width: 982px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.overlay-popup-form {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+.popup-form-wrapper {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  top: calc(50% - 250px);
+  left: calc(50% - 400px);
+}
+
+.form-wrapper {
+  width: 800px;
+  background: #fbfdff;
+  border-radius: 29px;
+  padding: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.type-value {
+  width: 700px;
+  height: 60px;
+  border: 1px solid #4f89aa;
+  box-shadow: 0px 4px 6px rgba(79, 137, 170, 0.3);
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.form ::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: #143861;
+  border-radius: 30px;
+}
+
+.form ::-webkit-scrollbar-thumb {
+  background-color: #4f89aa;
+  border-radius: 30px;
+  opacity: 0.7;
+}
+
+.type-value {
+  padding: 18px 22px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #4f89aa;
+  opacity: 0.7;
+}
+
+.form ::-webkit-input-placeholder {
+  color: #4f89aa;
+}
+.form ::-moz-placeholder {
+  color: #4f89aa;
+}
+.form :-moz-placeholder {
+  color: #4f89aa;
+}
+.form :-ms-input-placeholder {
+  color: #4f89aa;
+}
+
+.submit-form {
+  font-size: 30px;
+  line-height: 37px;
+  text-align: center;
+  color: #fbfdff;
+  background: #4f89aa;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 74px;
+  box-shadow: 0 5px 10px rgba(79, 137, 170, 0.6);
+  cursor: pointer;
+}
+
+.type-value:focus {
+  outline: none;
+}
+
 .logo-clinic {
   width: 200px;
   height: 200px;
