@@ -23,55 +23,69 @@ body {
   margin: -6px 17px;
 }
 
-.header .user {
-  content: "";
-  background: url("../img/user.svg");
-  width: 34.22px;
-  height: 42px;
-  right: 0;
-  margin: 1px 21px 0 0;
-  cursor: pointer;
-  position: relative;
+
+.header .user-menu {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 250px;
+  margin: 1px 0 0 1037px;
+
+  align-items: center;
 }
 
-.header .user:hover > .exit-hover {
+.header .user-menu-hover-space {
+  position: absolute;
+
+  width: 35px;
+  height: 70px;
+}
+
+.header .user-img {
+  width: 35px;
+}
+
+.user-menu:hover > .user-actions-wrapper {
   display: flex;
 }
 
-.header .user .exit-hover {
-  background: #4f89aa;
-  border-radius: 10px;
+.header .user-actions-wrapper {
   position: absolute;
+
   display: none;
-  height: fit-content;
-  bottom: -50px;
-  top: 78px;
-  right: -50px;
-  z-index: 1;
+  flex-direction: column;
+
+  min-width: 130px;
+  max-width: 250px;
+  margin: 80px 0 0 0;
+
+  border-radius: 10px;
+  background: #4f89aa;
+
+  align-items: center;
 }
 
-.header .user .exit-hover:after {
-  width: 0;
-  height: 0;
-  content: "";
+.header .user-actions-wrapper-triangle {
+  transform: rotate(180deg);
   position: absolute;
-  border-style: solid;
-  border-width: 0 34px 59px 34px;
-  border-color: transparent transparent #4f89aa transparent;
-  z-index: -1;
-  padding-top: 10px;
-  top: -36px;
-  left: 30px;
+
+  width: 30px;
+  height: 60px;
+  margin: -40px 0 0 0;
 }
 
-.header .user .exit-hover a {
-  font-style: normal;
-  font-weight: 500;
+.header .user-action {
   font-size: 20px;
-  line-height: 24px;
-  color: #fbfdff;
+
+  display: block;
+
+  padding: 9px 16px;
+
   text-decoration: none;
-  padding: 11px 36px;
+
+  color: #fbfdff;
 }
 
 .main-wrapper {
