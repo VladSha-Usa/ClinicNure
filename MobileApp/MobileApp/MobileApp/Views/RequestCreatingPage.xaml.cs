@@ -15,6 +15,7 @@ namespace MobileApp.Views
         public RequestCreatingPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

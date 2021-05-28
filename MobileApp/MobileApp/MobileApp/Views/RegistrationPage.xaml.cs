@@ -15,6 +15,7 @@ namespace MobileApp.Views
         public RegistrationPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

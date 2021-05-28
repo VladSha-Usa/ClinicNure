@@ -4,14 +4,14 @@
              x:Class="MobileApp.Views.StartPage">
     <StackLayout>
         <Image Margin="-20, 50, 0, 0" HeightRequest="225" WidthRequest="400" Source="startLogo.png" />
-        <Button x:Name="registrationBttn" Margin="50, 75, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
+        <Button x:Name="registrationBtn" Margin="50, 75, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
                 HorizontalOptions="Center"
-                TextColor="#FFFFFF" Text = "Реєстрація" FontSize="Large" 
+                TextColor="#FFFFFF" Text = "Реєстрація" FontSize="28" TextTransform="None"
                 CornerRadius="50"/>
-        <Button x:Name="enteringBttn" Margin="50, 20, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
+        <Button x:Name="enteringBtn" Margin="50, 20, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
                 HorizontalOptions="Center"
-                Text = "Вхід" TextColor="#FFFFFF" FontSize="Large" 
+                Text = "Вхід" TextColor="#FFFFFF" FontSize="28" TextTransform="None"
                 CornerRadius="50"/>
-        <Label Margin="335, 100, 0, 0" x:Name="version" Text="v.1.0.0" TextColor="Black"/>
+        <Label Margin="335, 270, 0, 0" x:Name="version" Text="v.1.0.0" TextColor="Black"/>
     </StackLayout>
 </ContentPage>

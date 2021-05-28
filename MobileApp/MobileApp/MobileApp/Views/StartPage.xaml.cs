@@ -17,6 +17,7 @@ namespace MobileApp.Views
             InitializeComponent();
 
             this.BackgroundColor = Color.FromHex("#AECDDE");
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

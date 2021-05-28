@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.WelcomePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="MobileApp.Views.WelcomePage"
+             BackgroundColor="#FFFFFF">
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal">
+            <Image Margin="22, 22, 0, 0" HeightRequest="45" WidthRequest="98" Source="logo2.png" />
+            <Button x:Name="profileBtn" BackgroundColor="#FFFFFF" Margin="200, 22, 0, 0"
+                    HeightRequest="53" WidthRequest="43" ImageSource="user.png"/>
         </StackLayout>
-    </ContentPage.Content>
+
+        <Label HorizontalOptions="Center" Margin="0, 80, 0, 0" FontSize="40" Text="Вітаємо Вас" TextColor="#4F89AA" />
+        <Label HorizontalOptions="Center" Margin="0, -10, 0, 0" FontSize="40" Text="у системі" TextColor="#4F89AA" />
+        <Label HorizontalOptions="Center" Margin="0, -10, 0, 0" FontSize="40" Text="SiPlus.me" TextColor="#4F89AA" />
+
+        <Button x:Name="createRequestBtn" Margin="50, 50, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
+                HorizontalOptions="Center"
+                Text = "Звернутись" TextColor="#FFFFFF" FontSize="28" TextTransform="None" 
+                CornerRadius="50"/>
+    </StackLayout>
 </ContentPage>
