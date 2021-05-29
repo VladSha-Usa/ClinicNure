@@ -7,11 +7,11 @@
         <Button x:Name="registrationBtn" Margin="50, 75, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
                 HorizontalOptions="Center"
                 TextColor="#FFFFFF" Text = "Реєстрація" FontSize="28" TextTransform="None"
-                CornerRadius="50"/>
+                CornerRadius="50" Clicked="registrationBtn_Clicked"/>
         <Button x:Name="enteringBtn" Margin="50, 20, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
                 HorizontalOptions="Center"
                 Text = "Вхід" TextColor="#FFFFFF" FontSize="28" TextTransform="None"
-                CornerRadius="50"/>
+                CornerRadius="50" Clicked="enteringBtn_Clicked"/>
         <Label Margin="335, 270, 0, 0" x:Name="version" Text="v.1.0.0" TextColor="Black"/>
     </StackLayout>
 </ContentPage>

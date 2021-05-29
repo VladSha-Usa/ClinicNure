@@ -7,24 +7,28 @@
         <StackLayout Orientation="Horizontal">
             <Image Margin="22, 22, 0, 0" HeightRequest="45" WidthRequest="98" Source="logo.png" />
             <Button x:Name="backBtn" BackgroundColor="#AECDDE" Margin="200, 22, 0, 0"
-                    HeightRequest="20" WidthRequest="34" ImageSource="back.png"/>
+                    HeightRequest="20" WidthRequest="34" ImageSource="back.png"
+                    Command="{Binding BackCommand}"/>
         </StackLayout>
 
         <Label HorizontalOptions="Center" Margin="0, 50, 0, 0" FontSize="58" Text="Реєстрація" TextColor="#FBFDFF" />
 
         <AbsoluteLayout HorizontalOptions="Center" Margin="0, 30, 0, 0" HeightRequest="190" WidthRequest="300">
             <BoxView Color="#FFFFFF" AbsoluteLayout.LayoutBounds="0, 0, 300, 50" CornerRadius="50"/>
-            <Entry x:Name="name" Placeholder="ПІБ" AbsoluteLayout.LayoutBounds="20, 0, 265, AutoSize" TextColor="#4F89AA"/>
+            <Entry x:Name="name" Placeholder="ПІБ" Text="{Binding Path=Patient.Name}"
+                   AbsoluteLayout.LayoutBounds="20, 0, 265, AutoSize" TextColor="#4F89AA"/>
             
             <BoxView Color="#FFFFFF" AbsoluteLayout.LayoutBounds="0, 70, 300, 50" CornerRadius="50"/>
-            <Entry x:Name="email" Placeholder="Пошта" AbsoluteLayout.LayoutBounds="20, 70, 265, AutoSize" TextColor="#4F89AA"/>
+            <Entry x:Name="email" Placeholder="Пошта" Text="{Binding Path=Patient.Email}"
+                    AbsoluteLayout.LayoutBounds="20, 70, 265, AutoSize" TextColor="#4F89AA"/>
             
             <BoxView Color="#FFFFFF" AbsoluteLayout.LayoutBounds="0, 140, 300, 50" CornerRadius="50"/>
-            <Entry x:Name="password" Placeholder="Пароль" AbsoluteLayout.LayoutBounds="20, 140, 265, AutoSize" TextColor="#4F89AA" IsPassword="True"/>
+            <Entry x:Name="password" Placeholder="Пароль" Text="{Binding Path=Patient.Password}"
+                   AbsoluteLayout.LayoutBounds="20, 140, 265, AutoSize" TextColor="#4F89AA" IsPassword="True"/>
         </AbsoluteLayout>
         
         <Button x:Name="enteringBttn" Margin="50, 20, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
-                HorizontalOptions="Center"
+                HorizontalOptions="Center" Command="{Binding RegistrationCommand}"
                 Text = "Підтвердити" TextColor="#FFFFFF" FontSize="28" TextTransform="None" 
                 CornerRadius="50"/>
 

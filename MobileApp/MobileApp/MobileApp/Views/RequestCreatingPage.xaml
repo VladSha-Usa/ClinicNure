@@ -1,12 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.RequestCreatingPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="MobileApp.Views.RequestCreatingPage"
+             BackgroundColor="#FFFFFF">
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal">
+            <Image Margin="22, 22, 0, 0" HeightRequest="45" WidthRequest="98" Source="logo2.png" />
+            <Button x:Name="backBtn" BackgroundColor="#FFFFFF" Margin="200, 22, 0, 0"
+                    HeightRequest="20" WidthRequest="34" ImageSource="back.png"/>
         </StackLayout>
-    </ContentPage.Content>
+
+        <AbsoluteLayout HorizontalOptions="Center" Margin="0, 30, 0, 0" HeightRequest="190" WidthRequest="300">
+            <BoxView Color="#4F89AA" AbsoluteLayout.LayoutBounds="-2, -2, 304, 54" CornerRadius="50"/>
+            <BoxView Color="#E2EEF5" AbsoluteLayout.LayoutBounds="0, 0, 300, 50" CornerRadius="50"/>
+            
+            <Entry x:Name="hospital" Placeholder="Лікарня" 
+                   Focused="hospital_Focused" Unfocused="hospital_Unfocused"
+                   AbsoluteLayout.LayoutBounds="20, 0, 265, AutoSize" TextColor="#4F89AA"/>
+
+            <BoxView Color="#4F89AA" AbsoluteLayout.LayoutBounds="-2, 68, 304, 54" CornerRadius="50"/>
+            <BoxView Color="#E2EEF5" AbsoluteLayout.LayoutBounds="0, 70, 300, 50" CornerRadius="50"/>
+
+            <Entry x:Name="doctor" Placeholder="Лікар" 
+                   Focused="doctor_Focused" Unfocused="doctor_Unfocused"
+                   AbsoluteLayout.LayoutBounds="20, 70, 265, AutoSize" TextColor="#4F89AA"/>
+
+            <BoxView Color="#4F89AA" AbsoluteLayout.LayoutBounds="-2, 138, 304, 54" CornerRadius="50"/>
+            <BoxView Color="#E2EEF5" AbsoluteLayout.LayoutBounds="0, 140, 300, 50" CornerRadius="50"/>
+
+            <Entry x:Name="symptom" Placeholder="Симптом" 
+                   Focused="symptom_Focused" Unfocused="symptom_Unfocused"
+                   AbsoluteLayout.LayoutBounds="20, 140, 265, AutoSize" TextColor="#4F89AA" IsPassword="True"/>
+
+            <BoxView x:Name="scrollViewBorder" Color="#4F89AA" AbsoluteLayout.LayoutBounds="-4, 52, 308, 204" IsVisible="False"/>
+            
+            <ScrollView x:Name="hospitalsListScroll" AbsoluteLayout.LayoutBounds="-2, 54, 304, 200" BackgroundColor="White"
+                        IsEnabled="False" IsVisible="False">
+                <StackLayout>
+                    <ListView x:Name="hospitalsList" SeparatorColor="#4F89AA"/>
+                </StackLayout>
+            </ScrollView>
+
+            <ScrollView x:Name="doctorsListScroll" AbsoluteLayout.LayoutBounds="-2, 54, 304, 200" BackgroundColor="White"
+                        IsEnabled="False" IsVisible="False">
+                <StackLayout>
+                    <ListView x:Name="doctorsList" SeparatorColor="#4F89AA"/>
+                </StackLayout>
+            </ScrollView>
+
+            <ScrollView x:Name="symptomsListScroll" AbsoluteLayout.LayoutBounds="-2, 54, 304, 200" BackgroundColor="White"
+                        IsEnabled="False" IsVisible="False">
+                <StackLayout>
+                    <ListView x:Name="symptomsList" SeparatorColor="#4F89AA"/>
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+
+        <ScrollView x:Name="symptomsScroll" Margin="0, 10, 0, 0" HorizontalOptions="Center" BackgroundColor="White"
+                    HeightRequest="250" WidthRequest="300" IsEnabled="False" IsVisible="False">
+            <StackLayout IsEnabled="False" IsVisible="False">
+                <ListView x:Name="symptoms" SeparatorColor="#4F89AA"/>
+            </StackLayout>
+        </ScrollView>
+
+        <Button x:Name="sendBttn"  VerticalOptions="EndAndExpand" Margin="0, 0, 0, 20" HeightRequest="60" WidthRequest="300" BackgroundColor="#4F89AA" 
+                HorizontalOptions="Center"
+                Text = "Відправити" TextColor="#FFFFFF" FontSize="28" TextTransform="None" 
+                CornerRadius="50"/>
+    </StackLayout>
 </ContentPage>

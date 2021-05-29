@@ -6,8 +6,11 @@
     <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal">
             <Image Margin="22, 22, 0, 0" HeightRequest="45" WidthRequest="98" Source="logo2.png" />
-            <Button x:Name="profileBtn" BackgroundColor="#FFFFFF" Margin="200, 22, 0, 0"
-                    HeightRequest="53" WidthRequest="43" ImageSource="user.png"/>
+            <Label x:Name="userName" HorizontalTextAlignment="End" FontSize="20" WidthRequest="200" Text="test" TextColor="#4F89AA" 
+                   Margin="0, 30, 0, 0"/>
+            <Button x:Name="profileBtn" BackgroundColor="#FFFFFF" Margin="10, 22, 0, 0"
+                    HeightRequest="53" WidthRequest="43" ImageSource="user.png"
+                    Clicked="profileBtn_Clicked"/>
         </StackLayout>
 
         <Label HorizontalOptions="Center" Margin="0, 80, 0, 0" FontSize="40" Text="Вітаємо Вас" TextColor="#4F89AA" />
@@ -17,6 +20,6 @@
         <Button x:Name="createRequestBtn" Margin="50, 50, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
                 HorizontalOptions="Center"
                 Text = "Звернутись" TextColor="#FFFFFF" FontSize="28" TextTransform="None" 
-                CornerRadius="50"/>
+                CornerRadius="50" Clicked="createRequestBtn_Clicked"/>
     </StackLayout>
 </ContentPage>

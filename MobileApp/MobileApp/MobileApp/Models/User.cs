@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobileApp.Models
 {
-    class User
+    public class User
     {
         public string Name { get; set; }
         public string Email { get; set; }

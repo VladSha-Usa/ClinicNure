@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserPage : ContentPage
     {
-        public UserPage()
+        public UserPage(User patient)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
