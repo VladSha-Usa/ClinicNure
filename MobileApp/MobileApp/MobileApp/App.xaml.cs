@@ -11,12 +11,12 @@ namespace MobileApp
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new StartPage());
+            MainPage = new NavigationPage(new StartPage());
             //MainPage = new UserPage(new Models.User() {  Name = "Мартиненко Олексій Володимирович",
             //                                                Email = "oleksii.martynenko@nure.ua", 
             //                                                Password = "password" });
 
-            MainPage = new RequestViewingPage();
+            //MainPage = new RequestViewingPage();
         }
 
         protected override void OnStart()

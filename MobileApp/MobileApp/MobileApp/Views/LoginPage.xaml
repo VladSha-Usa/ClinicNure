@@ -23,11 +23,20 @@
                    AbsoluteLayout.LayoutBounds="20, 70, 265, AutoSize" TextColor="#4F89AA" IsPassword="True"/>
         </AbsoluteLayout>
 
-        <Button x:Name="enteringBttn" Margin="50, 20, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
+        <Button x:Name="enteringBtn" Margin="50, 20, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 
                 HorizontalOptions="Center" Command="{Binding RegistrationCommand}"
                 Text = "Підтвердити" TextColor="#FFFFFF" FontSize="28" TextTransform="None" 
                 CornerRadius="50"/>
 
         <Label HorizontalOptions="Center" Margin="0, 0, 0, 0" FontSize="20" Text="Приєднатися за допомогою" TextColor="#FBFDFF" />
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button x:Name="facebookBtn" BackgroundColor="#AECDDE" Margin="0, 10, 0, 0"
+                    HeightRequest="75" WidthRequest="75" ImageSource="fb.png" CornerRadius="50"
+                    Command="{Binding FBRegCommand}"/>
+            <Button x:Name="googleBtn" BackgroundColor="#AECDDE" Margin="30, 10, 0, 0"
+                    HeightRequest="75" WidthRequest="75" ImageSource="google.png" CornerRadius="50"
+                    Command="{Binding GRegCommand}"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
