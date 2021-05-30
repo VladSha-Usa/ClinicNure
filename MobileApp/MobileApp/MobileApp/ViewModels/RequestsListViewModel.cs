@@ -6,6 +6,5 @@ namespace MobileApp.ViewModels
 {
     class RequestsListViewModel
     {
-
     }
 }

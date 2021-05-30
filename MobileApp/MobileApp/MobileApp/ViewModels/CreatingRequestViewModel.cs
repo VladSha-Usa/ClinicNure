@@ -4,8 +4,7 @@ using System.Text;
 
 namespace MobileApp.ViewModels
 {
-    class SymptomsListViewModel
+    class CreatingRequestViewModel
     {
-
     }
 }

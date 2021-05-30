@@ -3,12 +3,14 @@ using MobileApp.Models;
 using MobileApp.Services;
 using MobileApp.Views;
 using Newtonsoft.Json;
+using Plugin.FacebookClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Auth;
 using Xamarin.Forms;
@@ -29,6 +31,7 @@ namespace MobileApp.ViewModels
         public INavigation Navigation { get; set; }
 
         ServerConnection<Models.User> connection = new ServerConnection<Models.User>();
+        IFacebookClient facebookService = CrossFacebookClient.Current;
         bool isRegistrtion;
         Account account;
         AccountStore store;
@@ -39,7 +42,7 @@ namespace MobileApp.ViewModels
 
             Patient = new Models.User();
             RegistrationCommand = new Command(RegistrPatient);
-            FBRegCommand = new Command(RegistrByFacebook);
+            FBRegCommand = new Command(async () => await RegistrByFacebook());
             GRegCommand = new Command(RegistrByGoogle);
             BackCommand = new Command(Back);
             store = AccountStore.Create();
@@ -68,9 +71,57 @@ namespace MobileApp.ViewModels
         }
 
         // Facebook API
-        private async void RegistrByFacebook()
+        private async Task RegistrByFacebook()
         {
-            await Navigation.PopAsync();
+            try
+            {
+                if (facebookService.IsLoggedIn)
+                {
+                    facebookService.Logout();
+                }
+
+                EventHandler<FBEventArgs<string>> userDataDelegate = null;
+
+                userDataDelegate = async (object sender, FBEventArgs<string> e) =>
+                {
+                    if (e == null)
+                    {
+                        return;
+                    }
+
+                    switch (e.Status)
+                    {
+                        case FacebookActionStatus.Completed:
+                            var facebookProfile = await Task.Run(() => JsonConvert.DeserializeObject<FacebookProfile>(e.Data));
+                            var socialLoginData = new NetworkAuthData
+                            {
+                                Email = facebookProfile.Email,
+                                Name = $"{facebookProfile.FirstName} {facebookProfile.LastName}",
+                                Id = facebookProfile.Id
+                            };
+
+                            Patient.Email = socialLoginData.Email;
+                            Patient.Name = socialLoginData.Name;
+
+                            await Navigation.PushAsync(new WelcomePage(Patient));
+                            break;
+                        case FacebookActionStatus.Canceled:
+                            break;
+                    }
+
+                    facebookService.OnUserData -= userDataDelegate;
+                };
+
+                facebookService.OnUserData += userDataDelegate;
+
+                string[] fbRequestFields = { "email", "first_name", "gender", "last_name" };
+                string[] fbPermisions = { "email" };
+                await facebookService.RequestUserDataAsync(fbRequestFields, fbPermisions);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         // Google API
