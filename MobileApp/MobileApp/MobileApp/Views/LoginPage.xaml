@@ -14,13 +14,17 @@
         <Label HorizontalOptions="Center" Margin="0, 60, 0, 0" FontSize="58" Text="Вхід" TextColor="#FBFDFF" />
 
         <AbsoluteLayout HorizontalOptions="Center" Margin="0, 20, 0, 0" HeightRequest="140" WidthRequest="300">
+            <BoxView x:Name="emailBorder" Color="#4F89AA" AbsoluteLayout.LayoutBounds="-2, -2, 304, 54" CornerRadius="50"/>
             <BoxView Color="#FFFFFF" AbsoluteLayout.LayoutBounds="0, 0, 300, 50" CornerRadius="50"/>
             <Entry x:Name="email" Placeholder="Пошта" Text="{Binding Path=Patient.Email}" 
-                   AbsoluteLayout.LayoutBounds="20, 0, 265, AutoSize" TextColor="#4F89AA"/>
+                   AbsoluteLayout.LayoutBounds="20, 0, 265, AutoSize" TextColor="#4F89AA"
+                   Focused="email_Focused" Unfocused="email_Unfocused"/>
 
+            <BoxView x:Name="passwordBorder" Color="#4F89AA" AbsoluteLayout.LayoutBounds="-2, 68, 304, 54" CornerRadius="50"/>
             <BoxView Color="#FFFFFF" AbsoluteLayout.LayoutBounds="0, 70, 300, 50" CornerRadius="50"/>
             <Entry x:Name="password" Placeholder="Пароль" Text="{Binding Path=Patient.Password}"
-                   AbsoluteLayout.LayoutBounds="20, 70, 265, AutoSize" TextColor="#4F89AA" IsPassword="True"/>
+                   AbsoluteLayout.LayoutBounds="20, 70, 265, AutoSize" TextColor="#4F89AA" IsPassword="True"
+                   Focused="password_Focused" Unfocused="password_Unfocused"/>
         </AbsoluteLayout>
 
         <Button x:Name="enteringBtn" Margin="50, 20, 50, 0" HeightRequest="60" WidthRequest="400" BackgroundColor="#4F89AA" 

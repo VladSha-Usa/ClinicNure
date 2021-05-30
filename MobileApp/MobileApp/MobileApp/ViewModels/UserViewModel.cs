@@ -9,7 +9,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Auth;
@@ -31,13 +33,16 @@ namespace MobileApp.ViewModels
         public INavigation Navigation { get; set; }
 
         ServerConnection<Models.User> connection = new ServerConnection<Models.User>();
-        IFacebookClient facebookService = CrossFacebookClient.Current;
+        Page page;
         bool isRegistrtion;
+
+        IFacebookClient facebookService = CrossFacebookClient.Current;
         Account account;
         AccountStore store;
 
-        public UserViewModel(bool isRegistrtion)
+        public UserViewModel(Page page, bool isRegistrtion)
         {
+            this.page = page;
             this.isRegistrtion = isRegistrtion;
 
             Patient = new Models.User();
@@ -58,15 +63,19 @@ namespace MobileApp.ViewModels
 
         private async void RegistrPatient()
         {
-            bool isValid = Validation();
+            bool isValid = ValidatePatient();
 
             if (isValid)
             {
+                //
+                // Connect to server!!!
+                //
+
                 await Navigation.PushAsync(new WelcomePage(Patient));
             }
             else
             {
-
+                await page.DisplayAlert("", "Перевірте правильність введених даних", "ОК");
             }
         }
 
@@ -102,6 +111,10 @@ namespace MobileApp.ViewModels
 
                             Patient.Email = socialLoginData.Email;
                             Patient.Name = socialLoginData.Name;
+
+                            //
+                            // Connect to server!!!
+                            //
 
                             await Navigation.PushAsync(new WelcomePage(Patient));
                             break;
@@ -157,8 +170,6 @@ namespace MobileApp.ViewModels
 
             var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
             presenter.Login(authenticator);
-
-            //await Navigation.PopAsync();
         }
 
         async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs e)
@@ -173,14 +184,10 @@ namespace MobileApp.ViewModels
             AuthHelpers.User user = null;
             if (e.IsAuthenticated)
             {
-                // If the user is authenticated, request their basic user data from Google
-                // UserInfoUrl = https://www.googleapis.com/oauth2/v2/userinfo
                 var request = new OAuth2Request("GET", new Uri(AppConstant.Constants.UserInfoUrl), null, e.Account);
                 var response = await request.GetResponseAsync();
                 if (response != null)
                 {
-                    // Deserialize the data and store it in the account store
-                    // The users email address will be used to identify data in SimpleDB
                     string userJson = await response.GetResponseTextAsync();
                     user = JsonConvert.DeserializeObject<AuthHelpers.User>(userJson);
                 }
@@ -190,13 +197,13 @@ namespace MobileApp.ViewModels
                     Patient.Name = user.Name;
                     Patient.Email = user.Email;
                     Patient.Password = null;
+
+                    //
+                    // Connect to server!!!
+                    //
+
                     await Navigation.PushAsync(new WelcomePage(Patient));
-
-                    //App.Current.MainPage = new NavigationPage(new WelcomePage(Patient));
                 }
-
-                //await store.SaveAsync(account = e.Account, AppConstant.Constants.AppName);
-                //await DisplayAlert("Email address", user.Email, "OK");
             }
         }
 
@@ -217,8 +224,50 @@ namespace MobileApp.ViewModels
             await Navigation.PopAsync();
         }
 
-        private bool Validation()
+        private bool ValidatePatient()
         {
+            return ValidateName() && ValidateEmail() && ValidatePassword();
+        }
+
+        public bool ValidateName(string name = null)
+        {
+            if (Patient.Name == null) return false;
+
+            string nameRegex = @"^[a-zа-яїєіё]+\s[a-zа-яїєіё]+\s?[[a-zа-яїєіё]*]$";
+
+            if (!Regex.IsMatch(Patient.Name, nameRegex, RegexOptions.IgnoreCase))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ValidateEmail(string email = null)
+        {
+            if (Patient.Email == null) return false;
+
+            string emailRegex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
+            if (!Regex.IsMatch(Patient.Email, emailRegex, RegexOptions.IgnoreCase))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ValidatePassword(string password = null)
+        {
+            if (Patient.Password == null) return false;
+
+            string passwordRegex = @"^[a-z0-9_]{6,}$";
+
+            if (!Regex.IsMatch(Patient.Password, passwordRegex, RegexOptions.IgnoreCase))
+            {
+                return false;
+            }
+
             return true;
         }
     }

@@ -19,8 +19,47 @@ namespace MobileApp.Views
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            viewModel = new UserViewModel(true) { Navigation = this.Navigation };
+            viewModel = new UserViewModel(this, true) { Navigation = this.Navigation };
             BindingContext = viewModel;
+        }
+
+        private void name_Focused(object sender, FocusEventArgs e)
+        {
+            nameBorder.Color = Color.FromHex("#4F89AA");
+        }
+
+        private void name_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (!viewModel.ValidateName())
+            {
+                nameBorder.Color = Color.Red;
+            }
+        }
+
+        private void email_Focused(object sender, FocusEventArgs e)
+        {
+            emailBorder.Color = Color.FromHex("#4F89AA");
+        }
+
+        private void email_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (!viewModel.ValidateEmail())
+            {
+                emailBorder.Color = Color.Red;
+            }
+        }
+
+        private void password_Focused(object sender, FocusEventArgs e)
+        {
+            passwordBorder.Color = Color.FromHex("#4F89AA");
+        }
+
+        private void password_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (!viewModel.ValidatePassword())
+            {
+                passwordBorder.Color = Color.Red;
+            }
         }
     }
 }
