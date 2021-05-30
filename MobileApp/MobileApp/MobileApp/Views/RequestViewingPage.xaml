@@ -49,7 +49,7 @@
         <StackLayout Orientation="Horizontal">
             <Label Text="Лікар: " TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
                HorizontalOptions="Start" Margin="40, 0, 0, 0" WidthRequest="120"/>
-            <Label x:Name="requestDoctor" Text="{Binding Path=(Reqiest.Doctor.Speciality + Request.Doctor.Name)}" TextColor="#4F89AA" FontSize="15"
+            <Label x:Name="requestDoctor" Text="{Binding Path=Request.Doctor.Name}" TextColor="#4F89AA" FontSize="15"
                HorizontalOptions="Start" Margin="0, 5, 0, 0" WidthRequest="250"/>
         </StackLayout>
 

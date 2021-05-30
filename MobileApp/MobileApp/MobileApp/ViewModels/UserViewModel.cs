@@ -19,10 +19,8 @@ using Xamarin.Forms;
 
 namespace MobileApp.ViewModels
 {
-    class UserViewModel : INotifyPropertyChanged
+    class UserViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public Models.User Patient { get; set; }
 
         public ICommand RegistrationCommand { protected set; get; }
@@ -51,14 +49,6 @@ namespace MobileApp.ViewModels
             GRegCommand = new Command(RegistrByGoogle);
             BackCommand = new Command(Back);
             store = AccountStore.Create();
-        }
-
-        protected void OnPropertyChanged(string propName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            }
         }
 
         private async void RegistrPatient()
