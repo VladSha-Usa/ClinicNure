@@ -1,4 +1,5 @@
 ﻿using MobileApp.Models;
+using MobileApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +15,25 @@ namespace MobileApp.Views
     public partial class UserPage : ContentPage
     {
         User patient;
+        RequestsListViewModel viewModel;
 
         public UserPage(User patient)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
 
+            viewModel = new RequestsListViewModel(patient) { Navigation = this.Navigation };
+            BindingContext = viewModel;
+
             this.patient = patient;
             userName.Text = this.patient.Name;
             userEmail.Text = this.patient.Email;
         }
 
-        private async void exitBtn_Clicked(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            await Navigation.PopToRootAsync();
+            await viewModel.GetRequests();
+            base.OnAppearing();
         }
     }
 }

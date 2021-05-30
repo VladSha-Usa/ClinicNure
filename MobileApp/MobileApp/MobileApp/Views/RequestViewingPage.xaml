@@ -1,54 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.RequestViewingPage">
+             x:Class="MobileApp.Views.RequestViewingPage"
+             BackgroundColor="White">
     <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal">
             <Image Margin="22, 22, 0, 0" HeightRequest="45" WidthRequest="98" Source="logo2.png" />
             <Button x:Name="backBtn" BackgroundColor="#FFFFFF" Margin="200, 22, 0, 0"
-                    HeightRequest="20" WidthRequest="34" ImageSource="back.png"/>
+                    HeightRequest="20" WidthRequest="34" ImageSource="back.png"
+                    Command="{Binding BackCommand}"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Дата: " TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
-               HorizontalOptions="Start" Margin="40, 50, 0, 0" />
-            <Label x:Name="requestDate" Text="03.02.21" TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
-               HorizontalOptions="Start" Margin="10, 50, 0, 0" />
+               HorizontalOptions="Start" Margin="40, 50, 0, 0" WidthRequest="120"/>
+            <Label x:Name="requestDate" Text="{Binding Path=Request.Date}" TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
+               HorizontalOptions="Start" Margin="0, 50, 0, 0" WidthRequest="250"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Статус: " TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
-               HorizontalOptions="Start" Margin="40, 30, 0, 0" />
-            <Label x:Name="requestState" Text="необхідна додаткова онлайн консультація" TextColor="#4F89AA" FontSize="15"
-               HorizontalOptions="Start" Margin="10, 35, 0, 0" />
+               HorizontalOptions="Start" Margin="40, 30, 0, 0" WidthRequest="120"/>
+            <Label x:Name="requestState" Text="{Binding Path=Request.State}" TextColor="#4F89AA" FontSize="15"
+               HorizontalOptions="Start" Margin="0, 35, 0, 0" WidthRequest="250"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Симптоми: " TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
-               HorizontalOptions="Start" Margin="40, 0, 0, 0" />
-            <Label x:Name="requestSymptims" Text="нудота, запаморочення" TextColor="#4F89AA" FontSize="15"
-               HorizontalOptions="Start" Margin="10, 5, 0, 0" />
+               HorizontalOptions="Start" Margin="40, 0, 0, 0" WidthRequest="120"/>
+            <Label x:Name="requestSymptims" Text="{Binding Path=Request.Symptoms}" TextColor="#4F89AA" FontSize="15"
+               HorizontalOptions="Start" Margin="0, 5, 0, 0" WidthRequest="250"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Діагноз: " TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
-               HorizontalOptions="Start" Margin="40, 0, 0, 0" />
-            <Label x:Name="rewuestDisease" Text="потрібне уточнення" TextColor="#4F89AA" FontSize="15"
-               HorizontalOptions="Start" Margin="10, 5, 0, 0" />
+               HorizontalOptions="Start" Margin="40, 0, 0, 0" WidthRequest="120"/>
+            <Label x:Name="rewuestDisease" Text="{Binding Path=Request.Disease.Name}" TextColor="#4F89AA" FontSize="15"
+               HorizontalOptions="Start" Margin="0, 5, 0, 0" WidthRequest="250"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Лікарня: " TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
-               HorizontalOptions="Start" Margin="40, 0, 0, 0" />
-            <Label x:Name="rewuestHospital" Text="КНП 'Міська поліклініка №9'" TextColor="#4F89AA" FontSize="15"
-               HorizontalOptions="Start" Margin="10, 5, 0, 0" />
+               HorizontalOptions="Start" Margin="40, 0, 0, 0" WidthRequest="120"/>
+            <Label x:Name="rewuestHospital" Text="{Binding Path=Request.Hospital.Name}" TextColor="#4F89AA" FontSize="15"
+               HorizontalOptions="Start" Margin="0, 5, 0, 0" WidthRequest="250"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Лікар: " TextColor="#4F89AA" FontSize="20" FontAttributes="Bold"
-               HorizontalOptions="Start" Margin="40, 0, 0, 0" />
-            <Label x:Name="requestDoctor" Text="терапевт Марков В.О." TextColor="#4F89AA" FontSize="15"
-               HorizontalOptions="Start" Margin="10, 5, 0, 0" />
+               HorizontalOptions="Start" Margin="40, 0, 0, 0" WidthRequest="120"/>
+            <Label x:Name="requestDoctor" Text="{Binding Path=(Reqiest.Doctor.Speciality + Request.Doctor.Name)}" TextColor="#4F89AA" FontSize="15"
+               HorizontalOptions="Start" Margin="0, 5, 0, 0" WidthRequest="250"/>
         </StackLayout>
 
         
@@ -63,6 +65,7 @@
         <Button x:Name="paymentBtn" Margin="50, 20, 50, 0" HeightRequest="55" WidthRequest="280" BackgroundColor="#4F89AA" 
                 HorizontalOptions="Center"
                 Text = "Сплатити" TextColor="#FFFFFF" FontSize="25" TextTransform="None" 
-                CornerRadius="50" IsVisible="False"/>
+                CornerRadius="50" IsVisible="False"
+                Command="{Binding PayCommand}"/>
     </StackLayout>
 </ContentPage>

@@ -4,8 +4,9 @@ using System.Text;
 
 namespace MobileApp.Models
 {
-    public class Hospital
+    public class Disease
     {
         public string Name { get; set; }
+        public Symptom[] Symptoms { get; set; }
     }
 }
