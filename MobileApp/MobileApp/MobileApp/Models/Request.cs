@@ -6,6 +6,7 @@ namespace MobileApp.Models
 {
     public class Request
     {
+        public int Id { get; set; }
         public string Date { get; set; }
         public List<Symptom> Symptoms { get; set; }
         public Patient Patient { get; set; }

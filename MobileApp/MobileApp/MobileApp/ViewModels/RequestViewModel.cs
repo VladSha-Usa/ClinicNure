@@ -47,6 +47,14 @@ namespace MobileApp.ViewModels
             PayCommand = new Command(Pay);
             BackCommand = new Command(Back);
             LiqPayBackCommand = new Command(LiqPayBack);
+
+            //CHECK URL
+            serverConncetion.SetUrl("Requests/");
+        }
+
+        public ServerConnection<Request> GetServerConnection()
+        {
+            return serverConncetion;
         }
 
         protected void OnPropertyChanged(string propName)

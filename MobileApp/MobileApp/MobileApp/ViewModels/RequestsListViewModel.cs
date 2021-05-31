@@ -76,62 +76,85 @@ namespace MobileApp.ViewModels
             GetInfoCommand = new Command(GetInfo);
             BackCommand = new Command(Back);
             ExitCommand = new Command(Exit);
+
+            // CHECK URL
+            serverConncetion.SetUrl("Requests/");
         }
-
-
 
         //
         // Server connection!!!
         //
         public async Task GetRequests()
         {
-            /*
             IsBusy = true;
             IEnumerable<Request> requests = await serverConncetion.Get();
 
-            // очищаем список
-            //Friends.Clear();
-            */
-
-            while (Requests.Any())
+            if (requests != null)
             {
-                Requests.RemoveAt(Requests.Count - 1);
+                // Clear list
+                while (Requests.Any())
+                {
+                    Requests.RemoveAt(Requests.Count - 1);
+                }
+
+                // Add data
+                string symptoms = "";
+                foreach (Request req in requests)
+                {
+                    for (int i = 0; i < req.Symptoms.Count; i++)
+                    {
+                        symptoms += req.Symptoms[i].Name;
+
+                        if (i != req.Symptoms.Count - 1)
+                        {
+                            symptoms += ", ";
+                        }
+                    }
+
+                    RequestMobileType temp = new RequestMobileType()
+                    {
+                        Id = req.Id,
+                        Date = req.Date,
+                        Symptoms = symptoms,
+                        Patient = req.Patient,
+                        Hospital = req.Hospital,
+                        Doctor = req.Doctor,
+                        State = req.Status,
+                        Disease = req.Disease
+                    };
+
+                    Requests.Add(temp);
+                }
+
+                IsBusy = false;
             }
-
-            /*
-            // добавляем загруженные данные
-            foreach (Request req in requests)
+            else
             {
-                Requests.Add(req);
+                // Testing Data
+                RequestMobileType req1 = new RequestMobileType()
+                {
+                    Date = "29.05.21",
+                    Symptoms = "запаморочення, нудота",
+                    Patient = patient,
+                    Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
+                    Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
+                    State = "оброблено",
+                    Disease = new Disease() { Name = "отруєння" }
+                };
+                RequestMobileType req2 = new RequestMobileType()
+                {
+                    Date = "30.05.21",
+                    Symptoms = "запаморочення, нудота",
+                    Patient = patient,
+                    Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
+                    Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
+                    State = "Необхідне обстеження",
+                    Disease = new Disease() { Name = "" }
+                };
+
+                Requests.Add(req1);
+                Requests.Add(req2);
             }
-
-            IsBusy = false;
-            */
-
-            // Testing Data
-            RequestMobileType req1 = new RequestMobileType()
-            {
-                Date = "29.05.21",
-                Symptoms = "запаморочення, нудота",
-                Patient = patient,
-                Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
-                Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
-                State = "оброблено",
-                Disease = new Disease() { Name = "отруєння" }
-            };
-            RequestMobileType req2 = new RequestMobileType()
-            {
-                Date = "30.05.21",
-                Symptoms = "запаморочення, нудота",
-                Patient = patient,
-                Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
-                Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
-                State = "Необхідне обстеження",
-                Disease = new Disease() { Name = "потрібне уточнення" }
-            };
-
-            Requests.Add(req1);
-            Requests.Add(req2);
 
             selectedRequests = Requests.Where(req => req.Date.Equals(selectedDate.ToString("dd.MM.yy"))).ToList<RequestMobileType>();
             OnPropertyChanged("SelectedRequests");

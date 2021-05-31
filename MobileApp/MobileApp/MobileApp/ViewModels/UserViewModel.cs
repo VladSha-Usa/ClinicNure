@@ -30,7 +30,7 @@ namespace MobileApp.ViewModels
 
         public INavigation Navigation { get; set; }
 
-        ServerConnection<Models.User> connection = new ServerConnection<Models.User>();
+        ServerConnection<Models.Patient> connection = new ServerConnection<Models.Patient>();
         Page page;
         bool isRegistrtion;
 
@@ -49,6 +49,13 @@ namespace MobileApp.ViewModels
             GRegCommand = new Command(RegistrByGoogle);
             BackCommand = new Command(Back);
             store = AccountStore.Create();
+
+
+
+            // CHECK URL
+            connection.SetUrl("Patients/");
+
+            Patient.IsRegistration = this.isRegistrtion;
         }
 
         private async void RegistrPatient()
@@ -57,11 +64,20 @@ namespace MobileApp.ViewModels
 
             if (isValid)
             {
-                //
-                // Connect to server!!!
-                //
+                bool result = await connection.Add(Patient);
 
-                await Navigation.PushAsync(new WelcomePage(Patient));
+                if (!result && isRegistrtion)
+                {
+                    await page.DisplayAlert("", "Перевірте правильність введених даних", "ОК");
+                }
+                else if (!result && !isRegistrtion)
+                {
+                    await page.DisplayAlert("", "Проблеми із доступом до серверу", "ОК");
+                }
+                else if (result)
+                {
+                    await Navigation.PushAsync(new WelcomePage(Patient));
+                }
             }
             else
             {
@@ -102,11 +118,25 @@ namespace MobileApp.ViewModels
                             Patient.Email = socialLoginData.Email;
                             Patient.Name = socialLoginData.Name;
 
-                            //
-                            // Connect to server!!!
-                            //
+                            Patient temp = new Patient()
+                            {
+                                Name = Patient.Name,
+                                Email = "fb:" + Patient.Email,
+                                Password = Patient.Password,
+                                IsRegistration = Patient.IsRegistration
+                            };
 
-                            await Navigation.PushAsync(new WelcomePage(Patient));
+                            bool result = await connection.Add(temp);
+
+                            if (!result)
+                            {
+                                await page.DisplayAlert("", "Проблеми із доступом до серверу", "ОК");
+                            }
+                            else
+                            {
+                                await Navigation.PushAsync(new WelcomePage(Patient));
+                            }
+
                             break;
                         case FacebookActionStatus.Canceled:
                             break;
@@ -186,13 +216,25 @@ namespace MobileApp.ViewModels
                 {
                     Patient.Name = user.Name;
                     Patient.Email = user.Email;
-                    Patient.Password = null;
 
-                    //
-                    // Connect to server!!!
-                    //
+                    Patient temp = new Patient()
+                    {
+                        Name = Patient.Name,
+                        Email = "g:" + Patient.Email,
+                        Password = Patient.Password,
+                        IsRegistration = Patient.IsRegistration
+                    };
 
-                    await Navigation.PushAsync(new WelcomePage(Patient));
+                    bool result = await connection.Add(temp);
+
+                    if (!result)
+                    {
+                        await page.DisplayAlert("", "Проблеми із доступом до серверу", "ОК");
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new WelcomePage(Patient));
+                    }
                 }
             }
         }

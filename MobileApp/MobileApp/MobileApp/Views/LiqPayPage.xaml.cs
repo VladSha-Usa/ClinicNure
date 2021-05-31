@@ -34,21 +34,49 @@ namespace MobileApp.Views
                 //
                 // Server connection!!!
                 //
+                string symptoms = viewModel.Request.Symptoms;
+                string[] symptArr = symptoms.Split(new String[] {", "}, StringSplitOptions.RemoveEmptyEntries);
 
-                RequestMobileType temp = new RequestMobileType()
+                List<Symptom> symptomsList = new List<Symptom>();
+
+                for (int i = 0; i < symptArr.Length; i++)
                 {
+                    Symptom tempSymptom = new Symptom() { Name = symptArr[i] };
+                    symptomsList.Add(tempSymptom);
+                }
+
+                Request req = new Request()
+                {
+                    Id = viewModel.Request.Id,
                     Date = viewModel.Request.Date,
-                    Symptoms = viewModel.Request.Symptoms,
+                    Symptoms = symptomsList,
                     Patient = viewModel.Request.Patient,
                     Hospital = viewModel.Request.Hospital,
                     Doctor = viewModel.Request.Doctor,
-                    State = "Додаткова консультація сплачена",
+                    Status = "Додаткова консультація сплачена",
                     Disease = viewModel.Request.Disease
                 };
 
-                viewModel.Request = temp;
+                bool result = await viewModel.GetServerConnection().Update(req);
 
-                viewModel.IsPayment = false;
+                if (result)
+                {
+                    RequestMobileType temp = new RequestMobileType()
+                    {
+                        Id = viewModel.Request.Id,
+                        Date = viewModel.Request.Date,
+                        Symptoms = viewModel.Request.Symptoms,
+                        Patient = viewModel.Request.Patient,
+                        Hospital = viewModel.Request.Hospital,
+                        Doctor = viewModel.Request.Doctor,
+                        State = "Додаткова консультація сплачена",
+                        Disease = viewModel.Request.Disease
+                    };
+
+                    viewModel.Request = temp;
+
+                    viewModel.IsPayment = false;
+                }
 
                 await Navigation.PopAsync();
             }

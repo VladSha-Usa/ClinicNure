@@ -6,6 +6,7 @@ namespace MobileApp.Models
 {
     public class RequestMobileType
     {
+        public int Id { get; set; }
         public string Date { get; set; }
         public string Symptoms { get; set; }
         public Patient Patient { get; set; }
