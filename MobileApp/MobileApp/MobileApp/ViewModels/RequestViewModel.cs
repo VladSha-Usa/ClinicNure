@@ -1,5 +1,6 @@
 ﻿using MobileApp.Models;
 using MobileApp.Services;
+using MobileApp.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,22 @@ namespace MobileApp.ViewModels
 
         ServerConnection<Request> serverConncetion = new ServerConnection<Request>();
 
-        public Request Request { get; set; }
-        public bool IsPayment { get; private set; }
+        Request request;
+        public Request Request 
+        {
+            get { return request; }
+            set
+            {
+                request = value;
+                OnPropertyChanged("Request");
+            }
+        }
+
+        public bool IsPayment { get; set; }
 
         public ICommand PayCommand { get; set; }
         public ICommand BackCommand { get; set; }
+        public ICommand LiqPayBackCommand { get; set; }
 
         public INavigation Navigation { get; set; }
 
@@ -34,20 +46,26 @@ namespace MobileApp.ViewModels
 
             PayCommand = new Command(Pay);
             BackCommand = new Command(Back);
+            LiqPayBackCommand = new Command(LiqPayBack);
+        }
+
+        protected void OnPropertyChanged(string propName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
 
         private async void Pay()
         {
-            //
-            // PrivateBank API
-            //
-
-            //
-            // Server connection!!!
-            //
+            await Navigation.PushAsync(new LiqPayPage(this));
         }
 
         private async void Back()
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void LiqPayBack()
         {
             await Navigation.PopAsync();
         }

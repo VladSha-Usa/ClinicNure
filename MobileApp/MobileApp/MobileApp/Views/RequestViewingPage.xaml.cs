@@ -34,5 +34,25 @@ namespace MobileApp.Views
                 paymentBtn.IsVisible = true;
             }
         }
+
+        protected override void OnAppearing()
+        {
+            if (viewModel.IsPayment)
+            {
+                payment1.IsVisible = true;
+                payment2.IsVisible = true;
+                payment3.IsVisible = true;
+                paymentBtn.IsVisible = true;
+            }
+            else
+            {
+                payment1.IsVisible = false;
+                payment2.IsVisible = false;
+                payment3.IsVisible = false;
+                paymentBtn.IsVisible = false;
+            }
+
+            base.OnAppearing();
+        }
     }
 }

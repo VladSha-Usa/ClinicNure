@@ -91,11 +91,14 @@ namespace MobileApp.ViewModels
 
             // очищаем список
             //Friends.Clear();
+            */
+
             while (Requests.Any())
             {
                 Requests.RemoveAt(Requests.Count - 1);
             }
 
+            /*
             // добавляем загруженные данные
             foreach (Request req in requests)
             {

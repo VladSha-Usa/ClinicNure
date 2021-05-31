@@ -11,24 +11,18 @@ namespace MobileApp
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new StartPage());
-            MainPage = new NavigationPage( new WelcomePage(new Models.User() {  Name = "Мартиненко Олексій Володимирович",
-                                                            Email = "oleksii.martynenko@nure.ua", 
-                                                            Password = "password" }));
+            MainPage = new NavigationPage(new StartPage());
+            //MainPage = new NavigationPage( new UserPage(new Models.User() {  Name = "Мартиненко Олексій Володимирович",
+            //                                                Email = "oleksii.martynenko@nure.ua", 
+            //                                                Password = "password" }));
 
             //MainPage = new RequestViewingPage();
         }
 
-        protected override void OnStart()
-        {
-        }
+        protected override void OnStart() { }
 
-        protected override void OnSleep()
-        {
-        }
+        protected override void OnSleep() { }
 
-        protected override void OnResume()
-        {
-        }
+        protected override void OnResume() { }
     }
 }
