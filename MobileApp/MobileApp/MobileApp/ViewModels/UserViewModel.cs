@@ -21,7 +21,7 @@ namespace MobileApp.ViewModels
 {
     class UserViewModel
     {
-        public Models.Patient Patient { get; set; }
+        public Models.User Patient { get; set; }
 
         public ICommand RegistrationCommand { protected set; get; }
         public ICommand FBRegCommand { protected set; get; }
@@ -30,7 +30,7 @@ namespace MobileApp.ViewModels
 
         public INavigation Navigation { get; set; }
 
-        ServerConnection<Models.Patient> connection = new ServerConnection<Models.Patient>();
+        ServerConnection<Models.User> connection = new ServerConnection<Models.User>();
         Page page;
         bool isRegistrtion;
 
@@ -43,7 +43,7 @@ namespace MobileApp.ViewModels
             this.page = page;
             this.isRegistrtion = isRegistrtion;
 
-            Patient = new Models.Patient();
+            Patient = new Models.User();
             RegistrationCommand = new Command(RegistrPatient);
             FBRegCommand = new Command(async () => await RegistrByFacebook());
             GRegCommand = new Command(RegistrByGoogle);

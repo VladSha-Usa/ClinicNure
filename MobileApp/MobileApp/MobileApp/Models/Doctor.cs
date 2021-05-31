@@ -4,11 +4,11 @@ using System.Text;
 
 namespace MobileApp.Models
 {
-    class Doctor
+    public class Doctor
     {
-        public string Name { get; set; }
         public string Email { get; set; }
         public string Speciality { get; set; }
+        public string Name { get; set; }
         public Hospital Hospital { get; set; }
     }
 }

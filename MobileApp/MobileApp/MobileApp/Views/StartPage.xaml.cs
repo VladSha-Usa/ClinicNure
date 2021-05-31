@@ -17,6 +17,17 @@ namespace MobileApp.Views
             InitializeComponent();
 
             this.BackgroundColor = Color.FromHex("#AECDDE");
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        private async void enteringBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
+
+        private async void registrationBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistrationPage());
         }
     }
 }

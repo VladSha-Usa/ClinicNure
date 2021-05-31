@@ -16,7 +16,7 @@ namespace MobileApp.ViewModels
     public class RequestsListViewModel : INotifyPropertyChanged
     {
         bool isBusy;    // идет ли загрузка с сервера
-        Patient patient;
+        User patient;
         DateTime selectedDate;
         List<Request> selectedRequests;
 
@@ -67,7 +67,7 @@ namespace MobileApp.ViewModels
             get { return selectedRequests; }
         }
 
-        public RequestsListViewModel(Patient patient)
+        public RequestsListViewModel(User patient)
         {
             this.patient = patient;
             Requests = new ObservableCollection<Request>();

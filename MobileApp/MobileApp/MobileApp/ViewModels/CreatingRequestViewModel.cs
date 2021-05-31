@@ -15,7 +15,7 @@ namespace MobileApp.ViewModels
 
         ContentPage page;
         RequestServerType request;
-        Patient patient;
+        User patient;
         List<Hospital> hospitals;
         List<Doctor> doctors;
         List<Symptom> symptoms;
@@ -73,7 +73,7 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public CreatingRequestViewModel(ContentPage page, Patient patient)
+        public CreatingRequestViewModel(ContentPage page, User patient)
         {
             this.page = page;
             this.request = new RequestServerType();
