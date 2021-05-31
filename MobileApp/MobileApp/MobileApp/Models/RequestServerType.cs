@@ -4,10 +4,10 @@ using System.Text;
 
 namespace MobileApp.Models
 {
-    public class Request
+    public class RequestServerType
     {
         public string Date { get; set; }
-        public string Symptoms { get; set; }
+        public List<Symptom> Symptoms { get; set; }
         public User Patient { get; set; }
         public Hospital Hospital { get; set; }
         public Doctor Doctor { get; set; }
