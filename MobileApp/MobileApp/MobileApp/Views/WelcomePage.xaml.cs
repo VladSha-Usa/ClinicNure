@@ -13,9 +13,9 @@ namespace MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WelcomePage : ContentPage
     {
-        User patient;
+        Patient patient;
 
-        public WelcomePage(User patient)
+        public WelcomePage(Patient patient)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);

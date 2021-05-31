@@ -35,7 +35,7 @@ namespace MobileApp.Views
                 // Server connection!!!
                 //
 
-                Request temp = new Request()
+                RequestMobileType temp = new RequestMobileType()
                 {
                     Date = viewModel.Request.Date,
                     Symptoms = viewModel.Request.Symptoms,

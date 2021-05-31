@@ -14,10 +14,10 @@ namespace MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RequestViewingPage : ContentPage
     {
-        Request request;
+        RequestMobileType request;
         RequestViewModel viewModel;
 
-        public RequestViewingPage(Request request)
+        public RequestViewingPage(RequestMobileType request)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);

@@ -16,12 +16,12 @@ namespace MobileApp.ViewModels
     public class RequestsListViewModel : INotifyPropertyChanged
     {
         bool isBusy;    // идет ли загрузка с сервера
-        User patient;
+        Patient patient;
         DateTime selectedDate;
-        List<Request> selectedRequests;
+        List<RequestMobileType> selectedRequests;
 
         ServerConnection<Request> serverConncetion = new ServerConnection<Request>();
-        public ObservableCollection<Request> Requests { get; set; }
+        public ObservableCollection<RequestMobileType> Requests { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -55,22 +55,22 @@ namespace MobileApp.ViewModels
                 if (selectedDate != value)
                 {
                     selectedDate = value;
-                    selectedRequests = Requests.Where(req => req.Date.Equals(selectedDate.ToString("dd.MM.yy"))).ToList<Request>();
+                    selectedRequests = Requests.Where(req => req.Date.Equals(selectedDate.ToString("dd.MM.yy"))).ToList<RequestMobileType>();
                     OnPropertyChanged("SelectedDate");
                     OnPropertyChanged("SelectedRequests");
                 }
             }
         }
 
-        public List<Request> SelectedRequests
+        public List<RequestMobileType> SelectedRequests
         {
             get { return selectedRequests; }
         }
 
-        public RequestsListViewModel(User patient)
+        public RequestsListViewModel(Patient patient)
         {
             this.patient = patient;
-            Requests = new ObservableCollection<Request>();
+            Requests = new ObservableCollection<RequestMobileType>();
             selectedDate = DateTime.Now;
 
             GetInfoCommand = new Command(GetInfo);
@@ -109,23 +109,23 @@ namespace MobileApp.ViewModels
             */
 
             // Testing Data
-            Request req1 = new Request()
+            RequestMobileType req1 = new RequestMobileType()
             {
                 Date = "29.05.21",
                 Symptoms = "запаморочення, нудота",
                 Patient = patient,
                 Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
-                Doctor = new Doctor() { Speciality = "терапевт", Name = "Марков В.О." },
+                Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
                 State = "оброблено",
                 Disease = new Disease() { Name = "отруєння" }
             };
-            Request req2 = new Request()
+            RequestMobileType req2 = new RequestMobileType()
             {
                 Date = "30.05.21",
                 Symptoms = "запаморочення, нудота",
                 Patient = patient,
                 Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
-                Doctor = new Doctor() { Speciality = "терапевт", Name = "Марков В.О." },
+                Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
                 State = "Необхідне обстеження",
                 Disease = new Disease() { Name = "потрібне уточнення" }
             };
@@ -133,7 +133,7 @@ namespace MobileApp.ViewModels
             Requests.Add(req1);
             Requests.Add(req2);
 
-            selectedRequests = Requests.Where(req => req.Date.Equals(selectedDate.ToString("dd.MM.yy"))).ToList<Request>();
+            selectedRequests = Requests.Where(req => req.Date.Equals(selectedDate.ToString("dd.MM.yy"))).ToList<RequestMobileType>();
             OnPropertyChanged("SelectedRequests");
         }
 

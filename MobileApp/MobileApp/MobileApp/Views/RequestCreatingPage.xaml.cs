@@ -13,10 +13,10 @@ namespace MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RequestCreatingPage : ContentPage
     {
-        User patient;
+        Patient patient;
         CreatingRequestViewModel viewModel;
 
-        public RequestCreatingPage(User patient)
+        public RequestCreatingPage(Patient patient)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
@@ -29,7 +29,7 @@ namespace MobileApp.Views
         protected override async void OnAppearing()
         {
             await viewModel.GetHospitals();
-            await viewModel.GetDoctors();
+            //await viewModel.GetDoctors();
             await viewModel.GetSymptoms();
             base.OnAppearing();
         }
@@ -84,9 +84,9 @@ namespace MobileApp.Views
 
             scrollViewBorder.IsVisible = true;
 
-            List<Doctor> temp = new List<Doctor>();
-            temp.AddRange(viewModel.AllDoctors);
-            viewModel.Doctors = temp.Where(doc => doc.Hospital.Name.Equals(hospital.Text)).ToList();
+            List<DoctorForUser> temp = new List<DoctorForUser>();
+            temp.AddRange((hospitalsList.SelectedItem as Hospital).Doctors);
+            viewModel.Doctors = temp;
 
             symptomsScroll.Margin = new Thickness(0, 200, 0, 0);
 
@@ -156,7 +156,7 @@ namespace MobileApp.Views
 
         private void doctorsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Doctor selected = doctorsList.SelectedItem as Doctor;
+            DoctorForUser selected = doctorsList.SelectedItem as DoctorForUser;
             doctor.Text = selected.Name;
             viewModel.SelectedDoctor = selected;
         }

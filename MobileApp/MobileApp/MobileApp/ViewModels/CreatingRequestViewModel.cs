@@ -14,19 +14,19 @@ namespace MobileApp.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         ContentPage page;
-        RequestServerType request;
-        User patient;
+        Request request;
+        Patient patient;
         List<Hospital> hospitals;
-        List<Doctor> doctors;
+        List<DoctorForUser> doctors;
         List<Symptom> symptoms;
         List<Symptom> selectedSymptoms;
 
         public List<Hospital> AllHospitals { get; set; }
-        public List<Doctor> AllDoctors { get; set; }
+        //public List<DoctorForUser> AllDoctors { get; set; }
         public List<Symptom> AllSymptoms { get; set; }
 
         public Hospital SelectedHospital { get; set; }
-        public Doctor SelectedDoctor { get; set; }
+        public DoctorForUser SelectedDoctor { get; set; }
 
         public ICommand SendCommand { get; set; }
         public ICommand BackCommand { get; set; }
@@ -43,7 +43,7 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public List<Doctor> Doctors
+        public List<DoctorForUser> Doctors
         {
             get { return doctors; }
             set
@@ -73,19 +73,19 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public CreatingRequestViewModel(ContentPage page, User patient)
+        public CreatingRequestViewModel(ContentPage page, Patient patient)
         {
             this.page = page;
-            this.request = new RequestServerType();
+            this.request = new Request();
             this.patient = patient;
 
             hospitals = new List<Hospital>();
-            doctors = new List<Doctor>();
+            doctors = new List<DoctorForUser>();
             symptoms = new List<Symptom>();
             selectedSymptoms = new List<Symptom>();
 
             AllHospitals = new List<Hospital>();
-            AllDoctors = new List<Doctor>();
+            //AllDoctors = new List<DoctorForUser>();
             AllSymptoms = new List<Symptom>();
 
             SendCommand = new Command(Send);
@@ -99,9 +99,20 @@ namespace MobileApp.ViewModels
             //
 
             // Testing Data
-            Hospital h1 = new Hospital { Name = "Hospital One" };
-            Hospital h2 = new Hospital { Name = "Hospital Two" };
-            Hospital h3 = new Hospital { Name = "Hospital Three" };
+            DoctorForUser d1 = new DoctorForUser { Name = "Doctor One" };
+            DoctorForUser d2 = new DoctorForUser { Name = "Doctor Two" };
+            DoctorForUser d3 = new DoctorForUser { Name = "Doctor Three" };
+            DoctorForUser d4 = new DoctorForUser { Name = "Doctor Four" };
+            DoctorForUser d5 = new DoctorForUser { Name = "Doctor Five" };
+            DoctorForUser d6 = new DoctorForUser { Name = "Doctor Six" };
+            DoctorForUser d7 = new DoctorForUser { Name = "Doctor Seven" };
+            DoctorForUser d8 = new DoctorForUser { Name = "Doctor Eight" };
+            DoctorForUser d9 = new DoctorForUser { Name = "Doctor Nine" };
+            DoctorForUser d0 = new DoctorForUser { Name = "Doctor Ten" };
+
+            Hospital h1 = new Hospital { Name = "Hospital One", Doctors = new List<DoctorForUser>() { d1, d2, d0, d5 } };
+            Hospital h2 = new Hospital { Name = "Hospital Two", Doctors = new List<DoctorForUser>() { d3, d4, d8 } };
+            Hospital h3 = new Hospital { Name = "Hospital Three", Doctors = new List<DoctorForUser>() { d6, d7, d9 } }; 
 
             AllHospitals.Add(h1);
             AllHospitals.Add(h2);
@@ -113,6 +124,7 @@ namespace MobileApp.ViewModels
             //OnPropertyChanged("Hospitals");
         }
 
+        /*
         public async Task GetDoctors()
         {
             //
@@ -124,16 +136,7 @@ namespace MobileApp.ViewModels
             Hospital h2 = new Hospital { Name = "Hospital Two" };
             Hospital h3 = new Hospital { Name = "Hospital Three" };
 
-            Doctor d1 = new Doctor { Name = "Doctor One", Hospital = h1 };
-            Doctor d2 = new Doctor { Name = "Doctor Two", Hospital = h1 };
-            Doctor d3 = new Doctor { Name = "Doctor Three", Hospital = h2 };
-            Doctor d4 = new Doctor { Name = "Doctor Four", Hospital = h3 };
-            Doctor d5 = new Doctor { Name = "Doctor Five", Hospital = h1 };
-            Doctor d6 = new Doctor { Name = "Doctor Six", Hospital = h1 };
-            Doctor d7 = new Doctor { Name = "Doctor Seven", Hospital = h3 };
-            Doctor d8 = new Doctor { Name = "Doctor Eight", Hospital = h3 };
-            Doctor d9 = new Doctor { Name = "Doctor Nine", Hospital = h2 };
-            Doctor d0 = new Doctor { Name = "Doctor Ten", Hospital = h1 };
+            
 
             AllDoctors.Add(d1);
             AllDoctors.Add(d2);
@@ -151,6 +154,7 @@ namespace MobileApp.ViewModels
             Doctors = temp;
             //OnPropertyChanged("Doctors");
         }
+        */
 
         public async Task GetSymptoms()
         {

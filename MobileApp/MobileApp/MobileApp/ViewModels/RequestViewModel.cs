@@ -16,8 +16,8 @@ namespace MobileApp.ViewModels
 
         ServerConnection<Request> serverConncetion = new ServerConnection<Request>();
 
-        Request request;
-        public Request Request 
+        RequestMobileType request;
+        public RequestMobileType Request 
         {
             get { return request; }
             set
@@ -35,7 +35,7 @@ namespace MobileApp.ViewModels
 
         public INavigation Navigation { get; set; }
 
-        public RequestViewModel(Request request)
+        public RequestViewModel(RequestMobileType request)
         {
             Request = request;
 

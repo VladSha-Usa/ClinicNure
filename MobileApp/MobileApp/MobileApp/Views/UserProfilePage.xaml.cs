@@ -14,10 +14,10 @@ namespace MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserPage : ContentPage
     {
-        User patient;
+        Patient patient;
         RequestsListViewModel viewModel;
 
-        public UserPage(User patient)
+        public UserPage(Patient patient)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
