@@ -18,20 +18,20 @@ namespace MobileApp.ViewModels
         ContentPage page;
         Request request;
         Patient patient;
-        List<Hospital> hospitals;
-        List<DoctorForUser> doctors;
+        List<HospitalForUser> hospitals;
+        List<DoctorsForUser> doctors;
         List<Symptom> symptoms;
         List<Symptom> selectedSymptoms;
 
         ServerConnection<Request> connection = new ServerConnection<Request>();
         private bool isBusy;
 
-        public List<Hospital> AllHospitals { get; set; }
+        public List<HospitalForUser> AllHospitals { get; set; }
         //public List<DoctorForUser> AllDoctors { get; set; }
         public List<Symptom> AllSymptoms { get; set; }
 
-        public Hospital SelectedHospital { get; set; }
-        public DoctorForUser SelectedDoctor { get; set; }
+        public HospitalForUser SelectedHospital { get; set; }
+        public DoctorsForUser SelectedDoctor { get; set; }
 
         public ICommand SendCommand { get; set; }
         public ICommand BackCommand { get; set; }
@@ -54,7 +54,7 @@ namespace MobileApp.ViewModels
             get { return !isBusy; }
         }
 
-        public List<Hospital> Hospitals
+        public List<HospitalForUser> Hospitals
         {
             get { return hospitals; }
             set
@@ -64,7 +64,7 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public List<DoctorForUser> Doctors
+        public List<DoctorsForUser> Doctors
         {
             get { return doctors; }
             set
@@ -100,12 +100,12 @@ namespace MobileApp.ViewModels
             this.request = new Request();
             this.patient = patient;
 
-            hospitals = new List<Hospital>();
-            doctors = new List<DoctorForUser>();
+            hospitals = new List<HospitalForUser>();
+            doctors = new List<DoctorsForUser>();
             symptoms = new List<Symptom>();
             selectedSymptoms = new List<Symptom>();
 
-            AllHospitals = new List<Hospital>();
+            AllHospitals = new List<HospitalForUser>();
             //AllDoctors = new List<DoctorForUser>();
             AllSymptoms = new List<Symptom>();
 
@@ -121,11 +121,11 @@ namespace MobileApp.ViewModels
         //
         public async Task GetHospitals()
         {
-            ServerConnection<Hospital> hospConnection = new ServerConnection<Hospital>();
+            ServerConnection<HospitalForUser> hospConnection = new ServerConnection<HospitalForUser>();
             hospConnection.SetUrl("Hospitals/");
 
             IsBusy = true;
-            IEnumerable<Hospital> hosps = await hospConnection.Get();
+            IEnumerable<HospitalForUser> hosps = await hospConnection.Get();
 
             if (hosps != null)
             {
@@ -136,7 +136,7 @@ namespace MobileApp.ViewModels
                 }
 
                 // Add data
-                foreach (Hospital h in hosps)
+                foreach (HospitalForUser h in hosps)
                 {
                     AllHospitals.Add(h);
                 }
@@ -146,20 +146,20 @@ namespace MobileApp.ViewModels
             else
             {
                 // Testing Data
-                DoctorForUser d1 = new DoctorForUser { Name = "Петренко В.О." };
-                DoctorForUser d2 = new DoctorForUser { Name = "Семененко О.О." };
-                DoctorForUser d3 = new DoctorForUser { Name = "Мартинекно О.В." };
-                DoctorForUser d4 = new DoctorForUser { Name = "Олександров О.О." };
-                DoctorForUser d5 = new DoctorForUser { Name = "Верещагін К.Ю." };
-                DoctorForUser d6 = new DoctorForUser { Name = "Шостакова О.В." };
-                DoctorForUser d7 = new DoctorForUser { Name = "Семененко В.О." };
-                DoctorForUser d8 = new DoctorForUser { Name = "Літовка К.І." };
-                DoctorForUser d9 = new DoctorForUser { Name = "Кравченко Л.Г." };
-                DoctorForUser d0 = new DoctorForUser { Name = "Фоменко К.В." };
+                DoctorsForUser d1 = new DoctorsForUser { Name = "Петренко В.О." };
+                DoctorsForUser d2 = new DoctorsForUser { Name = "Семененко О.О." };
+                DoctorsForUser d3 = new DoctorsForUser { Name = "Мартинекно О.В." };
+                DoctorsForUser d4 = new DoctorsForUser { Name = "Олександров О.О." };
+                DoctorsForUser d5 = new DoctorsForUser { Name = "Верещагін К.Ю." };
+                DoctorsForUser d6 = new DoctorsForUser { Name = "Шостакова О.В." };
+                DoctorsForUser d7 = new DoctorsForUser { Name = "Семененко В.О." };
+                DoctorsForUser d8 = new DoctorsForUser { Name = "Літовка К.І." };
+                DoctorsForUser d9 = new DoctorsForUser { Name = "Кравченко Л.Г." };
+                DoctorsForUser d0 = new DoctorsForUser { Name = "Фоменко К.В." };
 
-                Hospital h1 = new Hospital { Name = "Міська поліклініка №1", Doctors = new List<DoctorForUser>() { d1, d2, d0, d5 } };
-                Hospital h2 = new Hospital { Name = "Міська поліклініка №2", Doctors = new List<DoctorForUser>() { d3, d4, d8 } };
-                Hospital h3 = new Hospital { Name = "Міська поліклініка №3", Doctors = new List<DoctorForUser>() { d6, d7, d9 } };
+                HospitalForUser h1 = new HospitalForUser { Name = "Міська поліклініка №1", Doctors = new List<DoctorsForUser>() { d1, d2, d0, d5 } };
+                HospitalForUser h2 = new HospitalForUser { Name = "Міська поліклініка №2", Doctors = new List<DoctorsForUser>() { d3, d4, d8 } };
+                HospitalForUser h3 = new HospitalForUser { Name = "Міська поліклініка №3", Doctors = new List<DoctorsForUser>() { d6, d7, d9 } };
 
                 AllHospitals.Add(h1);
                 AllHospitals.Add(h2);
@@ -174,9 +174,10 @@ namespace MobileApp.ViewModels
                 //OnPropertyChanged("Hospitals");
             }
 
-            List<Hospital> temp = new List<Hospital>();
+            List<HospitalForUser> temp = new List<HospitalForUser>();
             temp.AddRange(AllHospitals);
             Hospitals = temp;
+            OnPropertyChanged("Hospitals");
         }
 
         //
@@ -185,16 +186,16 @@ namespace MobileApp.ViewModels
         public async Task GetSymptoms()
         {
             ServerConnection<Symptom> symptConnection = new ServerConnection<Symptom>();
-            symptConnection.SetUrl("Hospitals/");
+            symptConnection.SetUrl("Symptoms/");
             IsBusy = true;
             IEnumerable<Symptom> hosps = await symptConnection.Get();
 
             if (hosps != null)
             {
                 // Clear list
-                while (AllHospitals.Any())
+                while (AllSymptoms.Any())
                 {
-                    AllHospitals.RemoveAt(AllHospitals.Count - 1);
+                    AllSymptoms.RemoveAt(AllSymptoms.Count - 1);
                 }
 
                 // Add data
@@ -242,6 +243,7 @@ namespace MobileApp.ViewModels
             List<Symptom> temp = new List<Symptom>();
             temp.AddRange(AllSymptoms);
             Symptoms = temp;
+            OnPropertyChanged("Symptoms");
         }
 
         public void AddSelectedSymptom(Symptom selected, char list)
@@ -296,9 +298,9 @@ namespace MobileApp.ViewModels
                 // Server connection!!!
                 //
 
-                bool result = await connection.Add(request);
+                Request result = await connection.Add(request);
 
-                if (result)
+                if (result != null)
                 {
                     await page.DisplayAlert("Запит відправлено", "", "OK");
                     await Navigation.PopAsync();

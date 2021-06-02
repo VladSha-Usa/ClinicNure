@@ -87,7 +87,8 @@ namespace MobileApp.ViewModels
         public async Task GetRequests()
         {
             IsBusy = true;
-            IEnumerable<Request> requests = await serverConncetion.Get();
+            string email = patient.Email;
+            IEnumerable<Request> requests = await serverConncetion.Get(email);
 
             // Clear list
             while (Requests.Any())
@@ -136,8 +137,8 @@ namespace MobileApp.ViewModels
                     Date = "29.05.21",
                     Symptoms = "запаморочення, нудота",
                     Patient = patient,
-                    Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
-                    Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
+                    Hospital = new HospitalForUser() { Name = "КНП \"міська поліклініка №9\"" },
+                    Doctor = new DoctorsForUser() { Speciality = "терапевт", Name = "Марков В.О." },
                     State = "оброблено",
                     Disease = new Disease() { Name = "отруєння" }
                 };
@@ -146,8 +147,8 @@ namespace MobileApp.ViewModels
                     Date = "30.05.21",
                     Symptoms = "запаморочення, нудота",
                     Patient = patient,
-                    Hospital = new Hospital() { Name = "КНП \"міська поліклініка №9\"" },
-                    Doctor = new DoctorForUser() { Speciality = "терапевт", Name = "Марков В.О." },
+                    Hospital = new HospitalForUser() { Name = "КНП \"міська поліклініка №9\"" },
+                    Doctor = new DoctorsForUser() { Speciality = "терапевт", Name = "Марков В.О." },
                     State = "Необхідне обстеження",
                     Disease = new Disease() { Name = "" }
                 };

@@ -11,7 +11,7 @@ namespace MobileApp.Services
 {
     public class ServerConnection<T>
     {
-        const string Url = "";
+        const string Url = "https://siplus.azurewebsites.net/api/";
         string urlEnd;
         bool isConnected;
 
@@ -27,12 +27,20 @@ namespace MobileApp.Services
             urlEnd += url;
         }
 
-        public async Task<IEnumerable<T>> Get()
+        public async Task<IEnumerable<T>> Get(string email = null)
         {
             if (isConnected && Url.Length != 0)
             {
                 HttpClient client = GetClient();
-                string result = await client.GetStringAsync(Url + urlEnd);
+                string result = null;
+                if (email == null) 
+                {
+                    result = await client.GetStringAsync(Url + urlEnd);
+                }
+                else
+                {
+                    result = await client.GetStringAsync(Url + urlEnd + email);
+                }
                 return JsonSerializer.Deserialize<IEnumerable<T>>(result, options);
             }
             else
@@ -41,11 +49,11 @@ namespace MobileApp.Services
             }
         }
 
-        public async Task<bool> Add(T obj)
+        public async Task<T> Add(T obj)
         {
             if (!isConnected)
             {
-                return false;
+                return default(T);
             }
 
             if (Url.Length != 0)
@@ -58,10 +66,13 @@ namespace MobileApp.Services
                         Encoding.UTF8, "application/json"));
 
                 if (response.StatusCode != HttpStatusCode.OK)
-                    return false;
+                    return default(T);
+
+                return JsonSerializer.Deserialize<T>(
+                    await response.Content.ReadAsStringAsync(), options);
             }
 
-            return true;
+            return default(T);
         }
 
         public async Task<bool> Update(T obj)
@@ -85,6 +96,17 @@ namespace MobileApp.Services
             }
 
             return true;
+        }
+
+        public async Task<T> Delete(string email)
+        {
+            HttpClient client = GetClient();
+            var response = await client.DeleteAsync(Url + urlEnd + email);
+            if (response.StatusCode != HttpStatusCode.OK)
+                return default(T);
+
+            return JsonSerializer.Deserialize<T>(
+               await response.Content.ReadAsStringAsync(), options);
         }
 
         private bool CheckConnection()

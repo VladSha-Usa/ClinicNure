@@ -10,8 +10,8 @@ namespace MobileApp.Models
         public string Date { get; set; }
         public List<Symptom> Symptoms { get; set; }
         public Patient Patient { get; set; }
-        public Hospital Hospital { get; set; }
-        public DoctorForUser Doctor { get; set; }
+        public HospitalForUser Hospital { get; set; }
+        public DoctorsForUser Doctor { get; set; }
         public string Status { get; set; }
         public Disease Disease { get; set; }
     }

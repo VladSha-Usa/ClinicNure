@@ -64,19 +64,19 @@ namespace MobileApp.ViewModels
 
             if (isValid)
             {
-                bool result = await connection.Add(Patient);
+                Patient result = await connection.Add(Patient);
 
-                if (!result && isRegistrtion)
+                if (result == null && isRegistrtion)
                 {
                     await page.DisplayAlert("", "Перевірте правильність введених даних", "ОК");
                 }
-                else if (!result && !isRegistrtion)
+                else if (result == null && !isRegistrtion)
                 {
                     await page.DisplayAlert("", "Проблеми із доступом до серверу", "ОК");
                 }
-                else if (result)
+                else if (result != null)
                 {
-                    await Navigation.PushAsync(new WelcomePage(Patient));
+                    await Navigation.PushAsync(new WelcomePage(result));
                 }
             }
             else
@@ -126,9 +126,9 @@ namespace MobileApp.ViewModels
                                 IsRegistration = Patient.IsRegistration
                             };
 
-                            bool result = await connection.Add(temp);
+                            Patient result = await connection.Add(temp);
 
-                            if (!result)
+                            if (result == null)
                             {
                                 await page.DisplayAlert("", "Проблеми із доступом до серверу", "ОК");
                             }
@@ -225,9 +225,9 @@ namespace MobileApp.ViewModels
                         IsRegistration = Patient.IsRegistration
                     };
 
-                    bool result = await connection.Add(temp);
+                    Patient result = await connection.Add(temp);
 
-                    if (!result)
+                    if (result == null)
                     {
                         await page.DisplayAlert("", "Проблеми із доступом до серверу", "ОК");
                     }
@@ -258,7 +258,15 @@ namespace MobileApp.ViewModels
 
         private bool ValidatePatient()
         {
-            return ValidateName() && ValidateEmail() && ValidatePassword();
+            if (isRegistrtion)
+            {
+
+                return ValidateName() && ValidateEmail() && ValidatePassword();
+            }
+            else
+            {
+                return ValidateEmail() && ValidatePassword();
+            }
         }
 
         public bool ValidateName(string name = null)
