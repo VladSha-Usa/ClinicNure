@@ -5,7 +5,7 @@
 - Шаповалов Владислав, links (https://github.com/VladSha-Usa/)
 - Олексенко Владислав, links (https://github.com/VladyslavOleksenko)
 - Мартиненко Олексій, links (https://github.com/Martynenko-Oleksii)
-- Арінєнков Олексій, links ()
+- Арінєнков Олексій, links (https://github.com/Arinienkov)
 - Овчаренко Олесь, links (https://github.com/OlesOv)
-- Конвтун Ірина, links ()
+- Конвтун Ірина, links (https://github.com/Isseni12)
 ---
