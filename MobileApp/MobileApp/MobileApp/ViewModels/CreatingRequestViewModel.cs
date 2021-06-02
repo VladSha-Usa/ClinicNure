@@ -146,20 +146,20 @@ namespace MobileApp.ViewModels
             else
             {
                 // Testing Data
-                DoctorForUser d1 = new DoctorForUser { Name = "Doctor One" };
-                DoctorForUser d2 = new DoctorForUser { Name = "Doctor Two" };
-                DoctorForUser d3 = new DoctorForUser { Name = "Doctor Three" };
-                DoctorForUser d4 = new DoctorForUser { Name = "Doctor Four" };
-                DoctorForUser d5 = new DoctorForUser { Name = "Doctor Five" };
-                DoctorForUser d6 = new DoctorForUser { Name = "Doctor Six" };
-                DoctorForUser d7 = new DoctorForUser { Name = "Doctor Seven" };
-                DoctorForUser d8 = new DoctorForUser { Name = "Doctor Eight" };
-                DoctorForUser d9 = new DoctorForUser { Name = "Doctor Nine" };
-                DoctorForUser d0 = new DoctorForUser { Name = "Doctor Ten" };
+                DoctorForUser d1 = new DoctorForUser { Name = "Петренко В.О." };
+                DoctorForUser d2 = new DoctorForUser { Name = "Семененко О.О." };
+                DoctorForUser d3 = new DoctorForUser { Name = "Мартинекно О.В." };
+                DoctorForUser d4 = new DoctorForUser { Name = "Олександров О.О." };
+                DoctorForUser d5 = new DoctorForUser { Name = "Верещагін К.Ю." };
+                DoctorForUser d6 = new DoctorForUser { Name = "Шостакова О.В." };
+                DoctorForUser d7 = new DoctorForUser { Name = "Семененко В.О." };
+                DoctorForUser d8 = new DoctorForUser { Name = "Літовка К.І." };
+                DoctorForUser d9 = new DoctorForUser { Name = "Кравченко Л.Г." };
+                DoctorForUser d0 = new DoctorForUser { Name = "Фоменко К.В." };
 
-                Hospital h1 = new Hospital { Name = "Hospital One", Doctors = new List<DoctorForUser>() { d1, d2, d0, d5 } };
-                Hospital h2 = new Hospital { Name = "Hospital Two", Doctors = new List<DoctorForUser>() { d3, d4, d8 } };
-                Hospital h3 = new Hospital { Name = "Hospital Three", Doctors = new List<DoctorForUser>() { d6, d7, d9 } };
+                Hospital h1 = new Hospital { Name = "Міська поліклініка №1", Doctors = new List<DoctorForUser>() { d1, d2, d0, d5 } };
+                Hospital h2 = new Hospital { Name = "Міська поліклініка №2", Doctors = new List<DoctorForUser>() { d3, d4, d8 } };
+                Hospital h3 = new Hospital { Name = "Міська поліклініка №3", Doctors = new List<DoctorForUser>() { d6, d7, d9 } };
 
                 AllHospitals.Add(h1);
                 AllHospitals.Add(h2);
@@ -208,16 +208,16 @@ namespace MobileApp.ViewModels
             else
             {
                 // Testing Data
-                Symptom s1 = new Symptom() { Name = "symptom one" };
-                Symptom s2 = new Symptom() { Name = "symptom two" };
-                Symptom s3 = new Symptom() { Name = "symptom three" };
-                Symptom s4 = new Symptom() { Name = "symptom four" };
-                Symptom s5 = new Symptom() { Name = "symptom five" };
-                Symptom s6 = new Symptom() { Name = "symptom six" };
-                Symptom s7 = new Symptom() { Name = "symptom seven" };
-                Symptom s8 = new Symptom() { Name = "symptom eight" };
-                Symptom s9 = new Symptom() { Name = "symptom nine" };
-                Symptom s0 = new Symptom() { Name = "symptom ten" };
+                Symptom s1 = new Symptom() { Name = "біль у животі" };
+                Symptom s2 = new Symptom() { Name = "біль у спині" };
+                Symptom s3 = new Symptom() { Name = "головний біль" };
+                Symptom s4 = new Symptom() { Name = "запаморочення" };
+                Symptom s5 = new Symptom() { Name = "кашель" };
+                Symptom s6 = new Symptom() { Name = "нудота" };
+                Symptom s7 = new Symptom() { Name = "нежить" };
+                Symptom s8 = new Symptom() { Name = "підвищена температура" };
+                Symptom s9 = new Symptom() { Name = "судоми (ноги)" };
+                Symptom s0 = new Symptom() { Name = "судоми (руки)" };
 
                 AllSymptoms.Add(s1);
                 AllSymptoms.Add(s2);

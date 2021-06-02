@@ -265,7 +265,7 @@ namespace MobileApp.ViewModels
         {
             if (Patient.Name == null) return false;
 
-            string nameRegex = @"^[a-zа-яїєіё]+\s[a-zа-яїєіё]+\s?[[a-zа-яїєіё]*]$";
+            string nameRegex = @"^[a-zа-яїєіё]+\s[a-zа-яїєіё]+.*$";
 
             if (!Regex.IsMatch(Patient.Name, nameRegex, RegexOptions.IgnoreCase))
             {

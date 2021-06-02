@@ -89,14 +89,14 @@ namespace MobileApp.ViewModels
             IsBusy = true;
             IEnumerable<Request> requests = await serverConncetion.Get();
 
+            // Clear list
+            while (Requests.Any())
+            {
+                Requests.RemoveAt(Requests.Count - 1);
+            }
+
             if (requests != null)
             {
-                // Clear list
-                while (Requests.Any())
-                {
-                    Requests.RemoveAt(Requests.Count - 1);
-                }
-
                 // Add data
                 string symptoms = "";
                 foreach (Request req in requests)
