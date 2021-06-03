@@ -46,7 +46,7 @@ namespace MobileApp.Views
 
             scrollViewBorder.IsVisible = true;
 
-            List<Hospital> temp = new List<Hospital>();
+            List<HospitalForUser> temp = new List<HospitalForUser>();
             temp.AddRange(viewModel.AllHospitals);
             viewModel.Hospitals = temp;
 
@@ -84,8 +84,8 @@ namespace MobileApp.Views
 
             scrollViewBorder.IsVisible = true;
 
-            List<DoctorForUser> temp = new List<DoctorForUser>();
-            temp.AddRange((hospitalsList.SelectedItem as Hospital).Doctors);
+            List<DoctorsForUser> temp = new List<DoctorsForUser>();
+            temp.AddRange((hospitalsList.SelectedItem as HospitalForUser).Doctors);
             viewModel.Doctors = temp;
 
             symptomsScroll.Margin = new Thickness(0, 200, 0, 0);
@@ -147,7 +147,7 @@ namespace MobileApp.Views
 
         private void hospitalsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Hospital selected = hospitalsList.SelectedItem as Hospital;
+            HospitalForUser selected = hospitalsList.SelectedItem as HospitalForUser;
             hospital.Text = selected.Name;
             viewModel.SelectedHospital = selected;
             doctor.Text = null;
@@ -156,7 +156,7 @@ namespace MobileApp.Views
 
         private void doctorsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            DoctorForUser selected = doctorsList.SelectedItem as DoctorForUser;
+            DoctorsForUser selected = doctorsList.SelectedItem as DoctorsForUser;
             doctor.Text = selected.Name;
             viewModel.SelectedDoctor = selected;
         }
