@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="header-wrapper">
+    <header class="header">
+        <span class="logo-main">
+            <img src="img/logo.svg" alt="Main logo" />
+        </span>
+        <div class="user-menu">
+            <img src="img/user.svg" class="user-img">
+            <div class="user-actions-wrapper">
+                <img src="img/triangle.svg" class="user-actions-wrapper-triangle">
+                <a href="#" class="user-action">Особистий кабінет</a>
+                <a href="#" class="user-action">Вихід</a>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="main-wrapper">
+    <main class="main">
+        <div class="btn-wrapper">
+            <button class="btn-add show_popup">Додати</button>
+            <div class="overlay-popup-form-invite"></div>
+            <div class="popup-form-wrapper-invite">
+                <div class="form-wrapper">
+                    <form class="invite-form form" action="" method="">
+                        <input class="type-value" type="text" required placeholder="ПІБ" />
+                        <input class="type-value" type="text" required placeholder="Посада" />
+                        <input class="type-value" type="email" required placeholder="Пошта" />
+                        <input class="type-value" type="text" required placeholder="Пароль" />
+                        <input class="submit-form" type="submit" value="Підтвердити" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="change-doctor-wrapper">
+            <div class="overlay-popup-form-change-doctor"></div>
+            <div class="popup-form-wrapper-change-doctor">
+                <div class="form-wrapper">
+                    <form class="change-doctor-form form" action="" method="">
+                        <input class="type-value" type="text" placeholder="ПІБ" />
+                        <input class="type-value" type="text" placeholder="Посада" />
+                        <input class="type-value" type="text" placeholder="Пароль" />
+                        <input class="submit-form" type="submit" value="Підтвердити" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <tr class="table-row table-row-header">
+                <th class="row-mail">Пошта:</th>
+            </tr>
+            <tr class="table-row table-row-value">
+                <td class="row-mail">ivan.koryak@gmail.com</td>
+                <td class="edit" onclick="showChangeDoctorForm(this)">
+                    <a href="#"></a>
+                </td>
+                <td class="delete">
+                    <a href="#"></a>
+                </td>
+            </tr>
+            <tr class="table-row table-row-value">
+                <td class="row-mail">vladyslav.parnenko@gmail.com</td>
+                <td class="edit" onclick="showChangeDoctorForm(this)">
+                    <a href="#"></a>
+                </td>
+                <td class="delete">
+                    <a href="#"></a>
+                </td>
+            </tr>
+            <tr class="table-row table-row-value">
+                <td class="row-mail">maria.laynenko@gmail.com</td>
+                <td class="edit" onclick="showChangeDoctorForm(this)">
+                    <a href="#"></a>
+                </td>
+                <td class="delete">
+                    <a href="#"></a>
+                </td>
+            </tr>
+        </table>
+    </main>
+</div>

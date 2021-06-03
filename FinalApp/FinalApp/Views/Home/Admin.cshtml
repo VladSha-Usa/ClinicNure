@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="header-wrapper">
+    <header class="header">
+        <span class="logo-main">
+            <img src="~/img/logo.svg" alt="Main logo" />
+        </span>
+        <span class="user">
+            <span class="exit-hover">
+                <a href="#">Вихід</a>
+            </span>
+        </span>
+    </header>
+</div>
+<div class="main-wrapper">
+    <main class="main">
+        <div class="invite-wrapper">
+            <button class="button-invite show_popup">Запросити</button>
+            <div class="overlay-popup-form"></div>
+            <div class="popup-form-wrapper">
+                <div class="invite-object">
+                    <form class="invite-form" action="" method="">
+                        <input class="type-email" type="email" placeholder="Пошта" />
+                        <textarea class="type-text"
+                                  type="text"
+                                  rows="10"
+                                  cols="45"
+                                  placeholder="Введіть текст"></textarea>
+                        <input class="submit-form" type="submit" value="Надіслати" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <tr class="table-row">
+                <td class="clinic">
+                    <div class="clinic-info-wrapper">
+                        <span class="clinic-info">Харківська міська багатопрофільна лікарня № 18</span>
+                        <button class="btn-open-info"></button>
+                    </div>
+                    <ul class="clinic-contact-info">
+                        <li class="clinic-address">
+                            <span class="clinic-contact-key">Адреса:</span> вулиця
+                            Краснодарська, 104, Харків, Харківська, 61000
+                        </li>
+                        <li class="clinic-admin-info">
+                            <span class="clinic-contact-key">Адміністратор:</span>
+                            Кочкін В.О., kochkin.vol@gmail.com
+                        </li>
+                    </ul>
+                </td>
+                <td class="delete">
+                    <a href="#"></a>
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="clinic">
+                    <div class="clinic-info-wrapper">
+                        <span class="clinic-info">Харківська міська багатопрофільна лікарня № 2002</span>
+                        <button class="btn-open-info"></button>
+                    </div>
+                    <ul class="clinic-contact-info">
+                        <li class="clinic-address">
+                            <span class="clinic-contact-key">Адреса:</span> вулиця
+                            Краснодарська, 104, Харків, Харківська, 61000
+                        </li>
+                        <li class="clinic-admin-info">
+                            <span class="clinic-contact-key">Адміністратор:</span>
+                            Кочкін В.О., kochkin.vol@gmail.com
+                        </li>
+                    </ul>
+                </td>
+                <td class="delete">
+                    <a href="#"></a>
+                </td>
+            </tr>
+        </table>
+    </main>
+</div>

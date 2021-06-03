@@ -18,7 +18,7 @@ namespace FinalApp.Models
 
         public Bitmap Logo { get; set; }
 
-        public List<Doctor> Doctors { get; set; }
+        public List<DoctorsForUser> Doctors { get; set; }
 
 
     }

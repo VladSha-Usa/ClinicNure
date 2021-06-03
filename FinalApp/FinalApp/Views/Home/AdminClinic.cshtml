@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="header-wrapper">
+    <header class="header">
+        <span class="logo-main">
+            <img src="img/logo.svg" alt="Main logo" />
+        </span>
+        <div class="user-menu">
+            <img src="img/user.svg" class="user-img">
+            <div class="user-actions-wrapper">
+                <img src="img/triangle.svg" class="user-actions-wrapper-triangle">
+                <a href="#" class="user-action">Лікарі</a>
+                <a href="#" class="user-action">Вихід</a>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="main-wrapper">
+    <main class="main">
+        <div class="change-clinic-wrapper">
+            <div class="overlay-popup-form"></div>
+            <div class="popup-form-wrapper">
+                <div class="form-wrapper">
+                    <form class="form" action="" method="">
+                        <input class="type-value name-input" type="text" placeholder="Назва" />
+                        <input class="type-value adress-input" type="text" placeholder="Адреса" />
+                        <input class="type-value phone-input" type="text" placeholder="Телефон" />
+                        <input class="type-value speciality-input" type="text" placeholder="Профіль" />
+                        <input class="submit-form" type="submit" value="Підтвердити" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="data-clinic-wrapper">
+            <img class="logo-clinic"
+                 src="img/logo-clinic.svg"
+                 alt="logo-clinic" />
+            <div class="info-clinic">
+                <div class="clinic-parameter-value-wrapper">
+                    <div class="clinic-parameter">Назва:</div>
+                    <div class="clinic-value clinic-name">Харківська міська багатопрофільна лікарня № 18</div>
+                </div>
+                <div class="clinic-parameter-value-wrapper">
+                    <div class="clinic-parameter">Адреса:</div>
+                    <div class="clinic-value clinic-adress">вулиця Краснодарська, 104, Харків, Харківська, 61000</div>
+                </div>
+                <div class="clinic-parameter-value-wrapper">
+                    <div class="clinic-parameter">Телефон:</div>
+                    <div class="clinic-value clinic-phone">+380577255130</div>
+                </div>
+                <div class="clinic-parameter-value-wrapper">
+                    <div class="clinic-parameter">Профіль:</div>
+                    <div class="clinic-value clinic-speciality">багатопрофільна лікарня</div>
+                </div>
+            </div>
+        </div>
+        <div class="btns-wrapper">
+            <button class="btn-edit">Редагувати</button>
+            <button class="btn-view">Лікарі</button>
+        </div>
+    </main>
+</div>
